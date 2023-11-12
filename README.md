@@ -1,58 +1,51 @@
-# create-svelte
+# svelte-leaflet
 
-Everything you need to build a Svelte library, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+Svelte component for [leaflet](https://leafletjs.com/)
 
-Read more about creating a library [in the docs](https://kit.svelte.dev/docs/packaging).
+[Documentation & Demo](https://ngyewch.github.io/svelte-leaflet/)
 
-## Creating a project
+[Sample project](https://github.com/ngyewch/svelte-leaflet-test)
 
-If you're seeing this, you've probably already done this step. Congrats!
+## Component support
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+- [x] Map
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+UI layers:
 
-## Developing
+- [x] Marker
+- [x] Popup
+- [x] Tooltip
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+Raster layers:
 
-```bash
-npm run dev
+- [x] TileLayer
+- [x] TileLayer.WMS
+- [x] ImageOverlay
+- [ ] VideoOverlay
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+Vector layers:
 
-Everything inside `src/lib` is part of your library, everything inside `src/routes` can be used as a showcase or preview app.
+- [x] Polyline
+- [x] Polygon
+- [x] Rectangle
+- [x] Circle
+- [x] CircleMarker
+- [ ] SVGOverlay
 
-## Building
+Other layers:
 
-To build your library:
+- [ ] LayerGroup
+- [ ] FeatureGroup
+- [x] GeoJSON
 
-```bash
-npm run package
-```
+Basic types:
 
-To create a production version of your showcase app:
+- [x] Icon
+- [x] DivIcon
 
-```bash
-npm run build
-```
+Controls:
 
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
-
-## Publishing
-
-Go into the `package.json` and give your package the desired name through the `"name"` option. Also consider adding a `"license"` field and point it to a `LICENSE` file which you can create from a template (one popular option is the [MIT license](https://opensource.org/license/mit/)).
-
-To publish your library to [npm](https://www.npmjs.com):
-
-```bash
-npm publish
-```
+- [ ] Zoom
+- [ ] Attribution
+- [ ] Layers
+- [x] Scale
