@@ -11,17 +11,20 @@ Svelte component for [leaflet](https://leafletjs.com/)
 - [x] Map
 
 UI layers:
+
 - [x] Marker
 - [x] Popup
 - [x] Tooltip
 
 Raster layers:
+
 - [x] TileLayer
 - [x] TileLayer.WMS
 - [x] ImageOverlay
 - [ ] VideoOverlay
 
 Vector layers:
+
 - [x] Polyline
 - [x] Polygon
 - [x] Rectangle
@@ -30,15 +33,18 @@ Vector layers:
 - [ ] SVGOverlay
 
 Other layers:
+
 - [ ] LayerGroup
 - [ ] FeatureGroup
 - [x] GeoJSON
 
 Basic types:
+
 - [x] Icon
 - [x] DivIcon
 
 Controls:
+
 - [ ] Zoom
 - [ ] Attribution
 - [ ] Layers

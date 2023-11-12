@@ -20,5 +20,21 @@ import LeafletRotatedMarkersExtension from './extensions/RotatedMarkers';
 
 LeafletRotatedMarkersExtension.install();
 
-export { LeafletMap, Circle, CircleMarker, GeoJSON, Icon, DivIcon, ImageOverlay, Marker, Polyline, Polygon, Popup, Rectangle, ScaleControl, TileLayer, Tooltip };
+export {
+	LeafletMap,
+	Circle,
+	CircleMarker,
+	GeoJSON,
+	Icon,
+	DivIcon,
+	ImageOverlay,
+	Marker,
+	Polyline,
+	Polygon,
+	Popup,
+	Rectangle,
+	ScaleControl,
+	TileLayer,
+	Tooltip
+};
 export default LeafletMap;

@@ -1,19 +1,19 @@
 <script>
-    import {getContext} from 'svelte';
-    import L from 'leaflet';
+	import { getContext } from 'svelte';
+	import L from 'leaflet';
 
-    const {getMarker} = getContext(L.Marker);
+	const { getMarker } = getContext(L.Marker);
 
-    export let options = {};
+	export let options = {};
 
-    let icon;
+	let icon;
 
-    $: {
-        icon = L.icon(options);
-        getMarker().setIcon(icon);
-    }
+	$: {
+		icon = L.icon(options);
+		getMarker().setIcon(icon);
+	}
 
-    export function getIcon() {
-        return icon;
-    }
+	export function getIcon() {
+		return icon;
+	}
 </script>

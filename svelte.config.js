@@ -11,7 +11,7 @@ const config = {
 	},
 	preprocess: vitePreprocess({
 		postcss: true
-	}),
+	})
 };
 
 export default config;
