@@ -1,6 +1,6 @@
 {
 	"name": "@valiantlynx/svelte-leaflet",
-	"version": "0.0.5",
+	"version": "0.0.6",
 	"publishConfig": {
 		"access": "public"
 	},
@@ -25,7 +25,7 @@
 		"type": "git",
 		"url": "git+https://github.com/valiantlynx/svelte-leaflet.git"
 	},
-	"homepage": "https://svelte-leaflet.netlify.app",
+	"homepage": "https://svelte-leaflet.vercel.app",
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build && npm run package",
