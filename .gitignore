@@ -13,3 +13,4 @@ vite.config.ts.timestamp-*
 *.log
 .vscode
 .dist
+.turbo
