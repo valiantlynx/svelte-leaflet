@@ -1,6 +1,6 @@
 {
 	"name": "@valiantlynx/svelte-leaflet",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"publishConfig": {
 		"access": "public"
 	},
@@ -25,6 +25,7 @@
 		"type": "git",
 		"url": "git+https://github.com/valiantlynx/svelte-leaflet.git"
 	},
+	"homepage": "https://svelte-leaflet.netlify.app",
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build && npm run package",
@@ -54,6 +55,7 @@
 	"devDependencies": {
 		"@changesets/cli": "^2.26.2",
 		"@sveltejs/adapter-auto": "^2.0.0",
+		"@sveltejs/adapter-static": "^2.0.3",
 		"@sveltejs/kit": "^1.20.4",
 		"@sveltejs/package": "^2.0.0",
 		"@valiantlynx/eslint-config-custom": "^0.0.1",

@@ -1,43 +1,70 @@
 <script>
-	import 'leaflet/dist/leaflet.css';
-	import { LeafletMap, Marker, Popup, TileLayer, Tooltip } from '$lib/index';
+	import ImageOverlay from '$lib/components/ImageOverlay.svelte';
+	import Polygon from '$lib/site-components/Polygon.svelte';
+	import DivIcon from '$lib/site-components/DivIcon.svelte';
+	import LeafletMap from '$lib/site-components/LeafletMap.svelte';
+	import Marker from '$lib/site-components/Marker.svelte';
+	import MarkerIcon from '$lib/site-components/MarkerIcon.svelte';
+	import Polyline from '$lib/site-components/Polyline.svelte';
+	import Popup from '$lib/site-components/Popup.svelte';
+	import TileLayerWms from '$lib/site-components/TileLayer-WMS.svelte';
+	import TileLayer from '$lib/site-components/TileLayer.svelte';
+	import Tooltip from '$lib/site-components/Tooltip.svelte';
+	import Rectangle from '$lib/site-components/Rectangle.svelte';
+	import Circle from '$lib/site-components/Circle.svelte';
+	import CircleMarker from '$lib/site-components/CircleMarker.svelte';
+	import GeoJson from '$lib/site-components/GeoJSON.svelte';
+	import ScaleControl from '$lib/site-components/ScaleControl.svelte';
 
-	const mapOptions = {
-		center: [1.364917, 103.822872],
-		zoom: 11
-	};
-	const tileUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
-	const tileLayerOptions = {
-		minZoom: 0,
-		maxZoom: 20,
-		maxNativeZoom: 19,
-		attribution: '© OpenStreetMap contributors'
-	};
+	const socialLinks = [
+    { url: 'https://github.com/valiantlynx/svelte-leaflet', icon: 'icons/github.svg' },
+    {url: 'https://twitter.com/valiantlynxz', icon: 'icons/twitter.svg' },
+    { url: 'https://www.linkedin.com/in/valiant-lynx-b3773224a', icon: 'icons/linkedin.svg' }
+  ];
 </script>
 
-<div class="h-screen bg-black">
-	<LeafletMap options={mapOptions}>
-		<TileLayer url={tileUrl} options={tileLayerOptions} />
-		<Marker latLng={[1.282375, 103.864273]}>
-			<Popup>Gardens by the Bay</Popup>
-			<Tooltip>Gardens by the Bay</Tooltip>
-		</Marker>
-		<Marker latLng={[1.359167, 103.989441]}>
-			<Popup><b>Changi Airport</b></Popup>
-			<Tooltip><b>Changi Airport</b></Tooltip>
-		</Marker>
-	</LeafletMap>
+<nav class="bg-gray-800 p-4">
+	<div class="flex items-center justify-between">
+	  <!-- Your logo or site name -->
+	  <a href="https://valiantlynx.com">
+		<img src="logo.jpg" alt="valiantlynx Logo" class="h-12 w-12" />
+	  </a>
+
+	  <div class="flex items-center space-x-4">
+		<!-- Navigation Links -->
+		<h1 class="text-2xl font-bold text-white">Svelte Leaflet</h1>
+	  </div>
+  
+	  <!-- Social Media Links -->
+	  <div class="flex items-center space-x-4">
+		{#each socialLinks as {icon, url }}
+		  <a href={url} target="_blank" rel="noopener noreferrer">
+			<img src={icon} class="text-white w-6 h-6"
+			  alt="Social Media Icon for valiantlynx"
+			 />
+		  </a>
+		{/each}
+	  </div>
+	</div>
+  </nav>
+
+  <h1 class="text-4xl font-bold text-center">Docs</h1>
+
+<div class="m-10 h-96">
+	<!-- <ImageOverlay	/> -->
+	<LeafletMap />
+	<Marker />
+	<MarkerIcon />
+	<DivIcon />
+	<Popup />
+	<Tooltip />
+	<TileLayer />
+	<TileLayerWms />
+	<Polyline />
+	<Polygon />
+	<Rectangle />
+	<Circle />
+	<GeoJson />
+	<ScaleControl />
+	<CircleMarker />
 </div>
-
-<footer class="footer footer-center p-10 bg-base-300 text-base-content rounded mt-auto">
-	<div class="grid grid-flow-col gap-4">
-		<a href="/about" class="link link-hover">About us</a>
-		<a href="/contact" class="link link-hover">Contact</a>
-		<a href="/privacy-policy" class="link link-hover">Privacy</a>
-		<a href="/pricing" class="link link-hover">Pricing</a>
-	</div>
-
-	<div>
-		<p>Copyright © 2023 - All right reserved by me</p>
-	</div>
-</footer>
