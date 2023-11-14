@@ -15,6 +15,7 @@
 	import CircleMarker from '$lib/site-components/CircleMarker.svelte';
 	import GeoJson from '$lib/site-components/GeoJSON.svelte';
 	import ScaleControl from '$lib/site-components/ScaleControl.svelte';
+	import Router from '$lib/components/Router.svelte';
 
 	const socialLinks = [
     { url: 'https://github.com/valiantlynx/svelte-leaflet', icon: 'icons/github.svg' },
@@ -52,6 +53,7 @@
 
 <div class="m-10 h-96">
 	<!-- <ImageOverlay	/> -->
+	<Router />
 	<LeafletMap />
 	<Marker />
 	<MarkerIcon />
