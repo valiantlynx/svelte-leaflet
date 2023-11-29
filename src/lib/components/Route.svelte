@@ -11,6 +11,9 @@
 	export let waypoints = [];
 	export let routeCoordinates = [];
 
+	export let summary = null;
+	export let instructions = null;
+
 	let router;
 
 	// This reactive statement ensures that waypointsArray is updated whenever start, destination, or waypoints change
@@ -33,6 +36,8 @@
 
 		router.on('routesfound', (e) => {
 			routeCoordinates = e.routes[0].coordinates;
+			summary = e.routes[0].summary;
+			instructions = e.routes[0].instructions;
 			dispatch('routeFound', e.routes[0]);
 		});
 	}

@@ -1,6 +1,6 @@
 {
 	"name": "@valiantlynx/svelte-leaflet",
-	"version": "0.0.10",
+	"version": "0.0.11",
 	"publishConfig": {
 		"access": "public"
 	},
@@ -87,6 +87,7 @@
 	"type": "module",
 	"dependencies": {
 		"@valiantlynx/svelte-rich-text": "^0.0.4",
-		"leaflet": "^1.9.4"
+		"leaflet": "^1.9.4",
+		"leaflet.fullscreen": "^3.0.0"
 	}
 }
