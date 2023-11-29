@@ -17,10 +17,10 @@
 	import ScaleControl from '$lib/site-components/ScaleControl.svelte';
 </script>
 
-  <h1 class="text-4xl font-bold text-center">Docs</h1>
+<h1 class="text-4xl font-bold text-center">Docs</h1>
 
-  <!-- links to specific pages about each of the components -->
-  <a href="/router" class="link-primary link">Router</a>
+<!-- links to specific pages about each of the components -->
+<a href="/router" class="link-primary link">Router</a>
 
 <div class="m-10 h-96">
 	<!-- <ImageOverlay	/> -->

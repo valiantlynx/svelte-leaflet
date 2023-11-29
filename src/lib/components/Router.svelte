@@ -47,11 +47,13 @@
 			marker = L.marker(latLng, options).addTo(getMap());
 			eventBridge = new EventBridge(marker, dispatch, events);
 		}
-		router =  marker.control({
-			waypoints: [L.latLng(start[0], start[1]), L.latLng(destination[0], destination[1])],
-			routeWhileDragging: true, // Update the route while dragging waypoints
-			showAlternatives: false
-		}).addTo(map);
+		router = marker
+			.control({
+				waypoints: [L.latLng(start[0], start[1]), L.latLng(destination[0], destination[1])],
+				routeWhileDragging: true, // Update the route while dragging waypoints
+				showAlternatives: false
+			})
+			.addTo(map);
 
 		router.on('routesfound', function (/** @type {{ routes: { instructions: never[]; }[]; }} */ e) {
 			/**
@@ -90,26 +92,25 @@
 
 			routingInstructions = instructionsHTML;
 			polyline.set(e.routes[0].coordinates);
-			
-		// 	polyline[0].coordinates.map((LatLng) => {
-		// 	markerLocations.update((existingLocations) => [...existingLocations, LatLng]);
-		// });
 
-		
-		// $page.data.tollStations.map((station) => {
-		// 	polyline[0].coordinates.map((LatLng) => {
-		// 		console.log("station: ", station[0], station[1], "distance: ", haversineDistance(station[0], station[1], LatLng.lat, LatLng.lng), "km");
-		// 		const distance = haversineDistance(
-		// 			station[0],
-		// 			station[1],
-		// 			LatLng.lat,
-		// 			LatLng.lng
-		// 		);
-		// 		if (distance < 0.1) {
-		// 			markerLocations.update((existingLocations) => [...existingLocations, LatLng]);
-		// 		}
-		// 	});
-		// });
+			// 	polyline[0].coordinates.map((LatLng) => {
+			// 	markerLocations.update((existingLocations) => [...existingLocations, LatLng]);
+			// });
+
+			// $page.data.tollStations.map((station) => {
+			// 	polyline[0].coordinates.map((LatLng) => {
+			// 		console.log("station: ", station[0], station[1], "distance: ", haversineDistance(station[0], station[1], LatLng.lat, LatLng.lng), "km");
+			// 		const distance = haversineDistance(
+			// 			station[0],
+			// 			station[1],
+			// 			LatLng.lat,
+			// 			LatLng.lng
+			// 		);
+			// 		if (distance < 0.1) {
+			// 			markerLocations.update((existingLocations) => [...existingLocations, LatLng]);
+			// 		}
+			// 	});
+			// });
 			//fetchAndDisplayStations(polyline);
 		});
 	}

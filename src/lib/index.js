@@ -37,6 +37,6 @@ export {
 	ScaleControl,
 	TileLayer,
 	Tooltip,
-	Route,
+	Route
 };
 export default LeafletMap;
