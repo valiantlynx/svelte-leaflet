@@ -13,4 +13,4 @@
 	<Route />
 </div>
 
-<ValiantRichText viewMode={true} intailData={initialData} />
+<ValiantRichText viewMode={true} {initialData} />

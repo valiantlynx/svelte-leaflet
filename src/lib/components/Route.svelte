@@ -2,14 +2,14 @@
 	import { createEventDispatcher, getContext, onDestroy, onMount } from 'svelte';
 	import L from 'leaflet';
 	import 'leaflet-routing-machine';
-	import { routeCoordinates } from '$lib/components/stores';
-
+	
 	const { getMap } = getContext(L);
 	const dispatch = createEventDispatcher();
 
 	export let start = [];
 	export let destination = [];
 	export let waypoints = [];
+	export let routeCoordinates = [];
 
 	let router;
 
@@ -32,7 +32,7 @@
 		}).addTo(getMap());
 
 		router.on('routesfound', (e) => {
-			routeCoordinates.set(e.routes[0].coordinates);
+			routeCoordinates = e.routes[0].coordinates;
 			dispatch('routeFound', e.routes[0]);
 		});
 	}
