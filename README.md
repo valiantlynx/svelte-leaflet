@@ -1,10 +1,10 @@
 # svelte-leaflet
 
-Svelte component for [leaflet](https://svelte-leaflet.netlify.app/)
+Svelte component for [leaflet](https://svelte-leaflet.vercel.app/)
 
 [Documentation & Demo](https://valiantlynx.github.io/svelte-leaflet/)
 
-[Sample project](https://svelte-leaflet.netlify.app)
+[Sample project](https://svelte-leaflet.vercel.app)
 
 ## Component support
 
