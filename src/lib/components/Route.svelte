@@ -2,6 +2,7 @@
 	import { createEventDispatcher, getContext, onDestroy, onMount } from 'svelte';
 	import L from 'leaflet';
 	import 'leaflet-routing-machine';
+	import 'leaflet-routing-machine/dist/leaflet-routing-machine.css';
 	
 	const { getMap } = getContext(L);
 	const dispatch = createEventDispatcher();
