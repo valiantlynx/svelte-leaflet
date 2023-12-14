@@ -1,0 +1,3 @@
+{
+  "extends": "@valiantlynx/tsconfig/dist/base.json"
+}

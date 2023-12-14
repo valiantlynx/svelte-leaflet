@@ -1,0 +1,23 @@
+{
+  "name": "anime-site-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "api/index.js",
+  "scripts": {
+    "start": "nodemon api",
+    "docker": "docker-compose up -d --build anime-site-api",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.7",
+    "request": "^2.88.2",
+    "uuid": "^8.3.1"
+  }
+}

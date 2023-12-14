@@ -1,0 +1,6 @@
+# flyctl launch added from .gitignore
+**\.dist
+**\.vscode
+
+pb_data
+fly.toml

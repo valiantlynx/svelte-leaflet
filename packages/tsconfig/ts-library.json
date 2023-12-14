@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "TS Library",
+  "extends": "./base.json",
+  "compilerOptions": {
+    "target": "es2016",                                
+    "module": "commonjs",                               
+    "noEmit": true,                                 
+    "esModuleInterop": true,                           
+    "forceConsistentCasingInFileNames": true,          
+    "strict": true,                                   
+    "noUncheckedIndexedAccess": true,               
+    "skipLibCheck": true                               
+  }
+}
+
+
