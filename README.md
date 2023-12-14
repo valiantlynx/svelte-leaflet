@@ -1,94 +1,85 @@
-[![Animevariant](https://github.com/valiantlynx/valiantlynx-turborepo/actions/workflows/svelte-manga.yaml/badge.svg)](https://github.com/valiantlynx/valiantlynx-turborepo/actions/workflows/svelte-manga.yaml)
-[![breath-first-search](https://github.com/valiantlynx/valiantlynx-turborepo/actions/workflows/breath-first-search.yaml/badge.svg)](https://github.com/valiantlynx/valiantlynx-turborepo/actions/workflows/breath-first-search.yaml)
-[![chatbot-ai](https://github.com/valiantlynx/valiantlynx-turborepo/actions/workflows/chatbot-ai.yaml/badge.svg)](https://github.com/valiantlynx/valiantlynx-turborepo/actions/workflows/chatbot-ai.yaml)
-[![depth-first-search](https://github.com/valiantlynx/valiantlynx-turborepo/actions/workflows/depth-first-search.yaml/badge.svg)](https://github.com/valiantlynx/valiantlynx-turborepo/actions/workflows/depth-first-search.yaml)
-[![issues](https://github.com/valiantlynx/valiantlynx-turborepo/actions/workflows/issues.yaml/badge.svg)](https://github.com/valiantlynx/valiantlynx-turborepo/actions/workflows/issues.yaml)
-[![Lint Code Base](https://github.com/valiantlynx/valiantlynx-turborepo/actions/workflows/linter.yaml/badge.svg)](https://github.com/valiantlynx/valiantlynx-turborepo/actions/workflows/linter.yaml)
-[![weather](https://github.com/valiantlynx/valiantlynx-turborepo/actions/workflows/weather.yml/badge.svg)](https://github.com/valiantlynx/valiantlynx-turborepo/actions/workflows/weather.yml)
+https://valiantlynx.github.io/web-worker/
 
-# Animevariant
+# Simple Web Worker Example
 
-## Quick Start
+This is a simple web application that demonstrates the usage of web workers to perform computationally intensive tasks without blocking the main thread.
 
-## Included Packages and Tools
+## Features
 
-This Turborepo includes the following packages/apps and utilities:
+- Clicking the "Do Work" button triggers a web worker that performs a time-consuming calculation in the background.
+- The result of the calculation is displayed in the output section.
+- Clicking the "Do More Work" button updates the "Random" section with the text "Clicked!"
 
-### Apps and Packages
+## Installation
 
-`docs`: A documentation app with [Next.js](https://nextjs.org/) and [Tailwind CSS](https://tailwindcss.com/)
-`web`: A web app with [Next.js](https://nextjs.org/) and [Tailwind CSS](https://tailwindcss.com/)
-`ui`: A React component library with [Tailwind CSS](https://tailwindcss.com/) shared by both `web` and `docs` applications
-`svelte-docs`: A documentation app with [SvelteKit](https://kit.svelte.dev/)
-`svelte-manga`: A web app with [SvelteKit](https://kit.svelte.dev/)
-`svelte-ui`: A Svelte component library shared by both `svelte-web` and `svelte-docs`
-`eslint-config-custom`: ESLint configurations (includes `eslint-config-next`, `eslint-plugin-svelte`, and `eslint-config-prettier`)
-`tsconfig`: `tsconfig.json` files used throughout the monorepo
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
+No installation is required for this application. Simply open the `index.html` file in a web browser.
 
-### Building `packages/ui`
+## Usage
 
-This example is set up to build `packages/ui` and output the transpiled source and compiled styles to `dist/`. This is done to share one `tailwind.config.js` easily and ensure that only the CSS used by the current application and its dependencies is generated.
-An alternative is to consume `packages/ui` directly from source without building. If you choose this option, update your `tailwind.config.js` to recognize your package locations, so it can find all usages of the `tailwindcss` class names. For instance:
+1. Open the `index.html` file in a web browser.
+2. Click the "Do Work" button to start the computationally intensive task in the web worker.
+3. The output section will display the result of the calculation once it is completed.
+4. Click the "Do More Work" button to update the "Random" section with the text "Clicked!".
 
-```js
-  content: [
-    // App content
-    `src/**/*.{js,ts,jsx,tsx}`,
-    // Include packages if not transpiling
-    "../../packages/**/*.{js,ts,jsx,tsx}",
-  ],
+## Technologies Used
+
+- HTML
+- JavaScript
+
+## Styling
+
+The application uses a simple CSS file (`style.css`) for basic styling. The following styles are applied:
+
+```css
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f1f1f1;
+  margin: 0;
+  padding: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+#random {
+  font-size: 24px;
+  margin-top: 20px;
+  color: brown;
+}
+
+#output {
+  font-size: 32px;
+  color: aqua;
+  margin-top: 20px;
+}
 ```
 
-### Utilities
+## How It Works
+- When the "Do Work" button is clicked, an event listener triggers the creation of a new web worker (worker.js).
+- The web worker performs a time-consuming calculation in the background.
+- Once the calculation is completed, the web worker sends the result back to the main thread.
+- The result is then displayed in the output section of the page.
+- Clicking the "Do More Work" button updates the "Random" section with the text "Clicked!".
+## Contributing
+Contributions are welcome! If you have any suggestions, improvements, or feature ideas, feel free to open an issue or submit a pull request.
 
-This Turborepo includes a set of useful tools:
-[Tailwind CSS](https://tailwindcss.com/) for styling
-[TypeScript](https://www.typescriptlang.org/) for static type checking
-[ESLint](https://eslint.org/) for code linting
-[Prettier](https://prettier.io/) for code formatting
-
-# Turborepo Docker Starter
-
-This repository is your Turborepo Docker starter pack. It's designed to help you quickly set up a Turborepo project that includes a Docker-based deployment workflow.
-
-## Getting Started
-
-1. Build the Docker containers and start the applications:
-
-```sh
-  docker network create minfuel-turborepo
-  COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_BUILDKIT=1 docker-compose -f docker-compose.yml build
-  docker-compose -f docker-compose.yml up -d
-
-```
-
-Open [http://localhost:3000](http://localhost:3000/) in your browser.
-
-2. To shut down all running containers:
-
-```sh
-  docker kill $(docker ps -q) && docker rm $(docker ps -a -q)
-
-```
-
-### Remote Caching
-
-This Turborepo includes optional remote caching. In the Dockerfiles of the apps, uncomment the build arguments for `TURBO_TEAM` and `TURBO_TOKEN`. Then, pass these build arguments to your Docker build.
-You can test this behavior using a command like:
-`docker build -f apps/svelte-manga/Dockerfile . --build
+## License
+This project is licensed under the MIT License.
 
 ### adding new projects with their own git history
 ```sh
-git subtree add --prefix=apps/anime-site https://github.com/valiantlynx/anime-site.git master --squash
-git subtree pull --prefix=apps/anime-site https://github.com/valiantlynx/anime-site.git master --squash
-git subtree push --prefix=apps/anime-site https://github.com/valiantlynx/anime-site.git master
+git subtree add --prefix=apps/web-worker https://github.com/valiantlynx/web-worker.git master --squash
+git subtree pull --prefix=apps/web-worker https://github.com/valiantlynx/web-worker.git master --squash
+git subtree push --prefix=apps/web-worker https://github.com/valiantlynx/web-worker.git master
 
 ```
-
-### publishing packages 
-```sh
-yarn publish:packages // this will publish all packages that are not private
-```
-
-free svg icons: https://www.svgrepo.com/svg/122485/car-placeholder

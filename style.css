@@ -1,0 +1,31 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f1f1f1;
+    margin: 0;
+    padding: 20px;
+  }
+
+ button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: #0056b3;
+  }
+
+  #random {
+    font-size: 24px;
+    margin-top: 20px;
+    color: brown;
+  }
+
+  #output {
+    font-size: 32px;
+    color: aqua;
+    margin-top: 20px;
+  }
