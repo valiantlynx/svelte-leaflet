@@ -1,5 +1,0 @@
-{
-  "extends": "@valiantlynx/tsconfig/dist/ts-library.json",
-  "include": ["."],
-  "exclude": ["dist", "build", "node_modules"]
-}

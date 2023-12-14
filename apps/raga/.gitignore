@@ -1,7 +1,0 @@
-node_modules
-.svelte-kit
-todo.md
-pnpm-lock.yaml
-package-lock.json
-build
-bun.lockb

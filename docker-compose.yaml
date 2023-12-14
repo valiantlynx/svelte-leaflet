@@ -1,0 +1,18 @@
+version: '3'
+services:
+  website:
+    image: ubuntu
+    ports:
+      - "3030:3030"
+    restart: always
+  website2:
+    image: ubuntu
+    ports:
+      - "3031:3030"
+    restart: always
+networks:
+  coffee:
+    ipam:
+      driver: default
+      config:
+        - subnet: ""
