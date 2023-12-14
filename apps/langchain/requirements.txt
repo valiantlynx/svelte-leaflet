@@ -1,0 +1,10 @@
+langchain
+langchain-cli
+langchain-experimental
+langsmith
+fastapi
+uvicorn
+debugpy
+openai
+python-dotenv
+google-search-results
