@@ -1,8 +1,4 @@
 <script>
-	import ImageOverlay from '$lib/components/ImageOverlay.svelte';
-	import Polygon from '$lib/site-components/Polygon.svelte';
-	import DivIcon from '$lib/site-components/DivIcon.svelte';
-	import Marker from '$lib/site-components/Marker.svelte';
 	import MarkerIcon from '$lib/site-components/MarkerIcon.svelte';
 	import Polyline from '$lib/site-components/Polyline.svelte';
 	import Popup from '$lib/site-components/Popup.svelte';
@@ -10,9 +6,6 @@
 	import TileLayer from '$lib/site-components/TileLayer.svelte';
 	import Tooltip from '$lib/site-components/Tooltip.svelte';
 	import Rectangle from '$lib/site-components/Rectangle.svelte';
-	import Circle from '$lib/site-components/Circle.svelte';
-	import CircleMarker from '$lib/site-components/CircleMarker.svelte';
-	import GeoJson from '$lib/site-components/GeoJSON.svelte';
 	import ScaleControl from '$lib/site-components/ScaleControl.svelte';
 </script>
 
@@ -21,21 +14,18 @@
 <!-- links to specific pages about each of the components -->
 <a href="/components/router" class="link-primary link">Router</a>
 <a href="/components/leaflet-map" class="link-primary link">Leaflet Map</a>
-
-<div class="m-10 h-96">
-	<!-- <ImageOverlay	/> -->
-	<Marker />
-	<MarkerIcon />
-	<DivIcon />
-	<Popup />
-	<Tooltip />
-	<TileLayer />
-	<TileLayerWms />
-	<Polyline />
-	<Polygon />
-	<Rectangle />
-	<Circle />
-	<GeoJson />
-	<ScaleControl />
-	<CircleMarker />
-</div>
+<a href="/components/polygon" class="link-primary link">Polygon</a>
+<a href="/components/marker" class="link-primary link">Marker</a>
+<a href="/components/marker-icon" class="link-primary link">Marker Icon</a>
+<a href="/components/polyline" class="link-primary link">Polyline</a>
+<a href="/components/popup" class="link-primary link">Popup</a>
+<a href="/components/tooltip" class="link-primary link">Tooltip</a>
+<a href="/components/tile-layer" class="link-primary link">Tile Layer</a>
+<a href="/components/tile-layer-wms" class="link-primary link">Tile Layer WMS</a>
+<a href="/components/rectangle" class="link-primary link">Rectangle</a>
+<a href="/components/circle" class="link-primary link">Circle</a>
+<a href="/components/geojson" class="link-primary link">GeoJSON</a>
+<a href="/components/scale-control" class="link-primary link">Scale Control</a>
+<a href="/components/circle-marker" class="link-primary link">Circle Marker</a>
+<a href="/components/div-icon" class="link-primary link">Div Icon</a>
+<a href="/components/image-overlay" class="link-primary link">Image Overlay</a>

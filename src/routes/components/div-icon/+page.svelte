@@ -1,5 +1,5 @@
 <script>
-	import LeafletMap from '$lib/site-components/LeafletMap.svelte';
+	import DivIcon from '$lib/site-components/DivIcon.svelte';
 	import { ValiantRichText } from '@valiantlynx/svelte-rich-text';
 	import { initialData } from './data';
 	import {Breadcrumbs} from '@valiantlynx/svelte-ui';
@@ -14,18 +14,18 @@
 			url: '/components'
 		},
 		{
-			name: 'leaflet-map',
-			url: '/components/leaflet-map'
+			name: 'div-icon',
+			url: '/components/div-icon'
 		}
 	];
 </script>
 
 <Breadcrumbs {crumbs} />
 
-<h1 class="text-4xl font-bold text-center">Leaflet Map</h1>
+<h1 class="text-4xl font-bold text-center">Div Icon</h1>
 
 <div class="m-10">
-	<LeafletMap />
+	<DivIcon />
 </div>
 
 <ValiantRichText viewMode={true} {initialData} />
