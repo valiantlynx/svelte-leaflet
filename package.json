@@ -1,6 +1,6 @@
 {
 	"name": "@valiantlynx/svelte-leaflet",
-	"version": "0.0.13",
+	"version": "0.0.14",
 	"publishConfig": {
 		"access": "public"
 	},
@@ -8,6 +8,7 @@
 	"maintainers": [
 		"valiantlynx <valiantlynxz@gmail.com> (https://www.valiantlynx.com/)"
 	],
+	"packageManager": "yarn@1.22.19",
 	"engines": {
 		"node": ">=16.14"
 	},
@@ -28,11 +29,11 @@
 	"homepage": "https://svelte-leaflet.vercel.app",
 	"scripts": {
 		"dev": "vite dev",
-		"build": "vite build && npm run package",
+		"build": "vite build && yarn package",
 		"preview": "vite preview",
 		"package": "svelte-kit sync && svelte-package && publint",
 		"release": "yarn package && npx changeset publish",
-		"prepublishOnly": "npm run package",
+		"prepublishOnly": "yarn package",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./jsconfig.json --watch",
 		"lint": "prettier --plugin-search-dir . --check . && eslint .",
@@ -86,8 +87,8 @@
 	"types": "./dist/index.d.ts",
 	"type": "module",
 	"dependencies": {
-		"@valiantlynx/svelte-rich-text": "^0.0.6",
-		"@valiantlynx/svelte-ui": "0.0.22",
+		"@valiantlynx/svelte-rich-text": "^0.0.9",
+		"@valiantlynx/svelte-ui": "0.0.23",
 		"leaflet": "^1.9.4",
 		"leaflet.fullscreen": "^3.0.0"
 	}
