@@ -1,5 +1,5 @@
 <script>
-	import TileLayerWms from '$lib/site-components/TileLayerWms.svelte';
+	import TileLayerWms from '$lib/site-components/TileLayer-WMS.svelte';
 	import { ValiantRichText } from '@valiantlynx/svelte-rich-text';
 	import { initialData } from './data';
 	import {Breadcrumbs} from '@valiantlynx/svelte-ui';
