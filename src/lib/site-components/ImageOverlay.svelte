@@ -28,7 +28,7 @@
 		<LeafletMap options={mapOptions}>
 			<TileLayer url={tileUrl} options={tileLayerOptions} />
 			<ImageOverlay
-				imageUrl="dpsri_70km_2021082110500000dBR.dpsri.png"
+				imageUrl="/dpsri_70km_2021082110500000dBR.dpsri.png"
 				{bounds}
 				options={imageOverlayOptions}
 			/>
