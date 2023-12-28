@@ -2,7 +2,6 @@
 	import ImageOverlay from '$lib/components/ImageOverlay.svelte';
 	import Polygon from '$lib/site-components/Polygon.svelte';
 	import DivIcon from '$lib/site-components/DivIcon.svelte';
-	import LeafletMap from '$lib/site-components/LeafletMap.svelte';
 	import Marker from '$lib/site-components/Marker.svelte';
 	import MarkerIcon from '$lib/site-components/MarkerIcon.svelte';
 	import Polyline from '$lib/site-components/Polyline.svelte';
@@ -21,10 +20,10 @@
 
 <!-- links to specific pages about each of the components -->
 <a href="/components/router" class="link-primary link">Router</a>
+<a href="/components/leaflet-map" class="link-primary link">Leaflet Map</a>
 
 <div class="m-10 h-96">
 	<!-- <ImageOverlay	/> -->
-	<LeafletMap />
 	<Marker />
 	<MarkerIcon />
 	<DivIcon />
