@@ -2,9 +2,9 @@
 	import '../app.css';
 	import 'leaflet/dist/leaflet.css';
 	const socialLinks = [
-		{ url: 'https://github.com/valiantlynx/svelte-leaflet', icon: 'icons/github.svg' },
-		{ url: 'https://twitter.com/valiantlynxz', icon: 'icons/twitter.svg' },
-		{ url: 'https://www.linkedin.com/in/valiant-lynx-b3773224a', icon: 'icons/linkedin.svg' }
+		{ url: 'https://github.com/valiantlynx/svelte-leaflet', icon: '/icons/github.svg' },
+		{ url: 'https://twitter.com/valiantlynxz', icon: '/icons/twitter.svg' },
+		{ url: 'https://www.linkedin.com/in/valiant-lynx-b3773224a', icon: '/icons/linkedin.svg' }
 	];
 </script>
 
@@ -13,7 +13,7 @@
 	<div class="flex items-center justify-between">
 		<!-- Your logo or site name -->
 		<a href="https://valiantlynx.com">
-			<img src="logo.jpg" alt="valiantlynx Logo" class="h-12 w-12" />
+			<img src="/logo.jpg" alt="valiantlynx Logo" class="h-12 w-12" />
 		</a>
 
 		<div class="flex items-center space-x-4">
