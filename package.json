@@ -1,6 +1,6 @@
 {
 	"name": "@valiantlynx/svelte-leaflet",
-	"version": "0.0.14",
+	"version": "0.0.15",
 	"publishConfig": {
 		"access": "public"
 	},
@@ -87,7 +87,7 @@
 	"types": "./dist/index.d.ts",
 	"type": "module",
 	"dependencies": {
-		"@valiantlynx/svelte-rich-text": "^0.0.9",
+		"@valiantlynx/svelte-rich-text": "^0.0.10",
 		"@valiantlynx/svelte-ui": "0.0.23",
 		"leaflet": "^1.9.4",
 		"leaflet.fullscreen": "^3.0.0"
