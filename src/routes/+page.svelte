@@ -1,23 +1,4 @@
 <script>
-	// Sample data for components
-	let components = [
-		{ name: 'Router', link: '/components/router', description: 'Efficient routing management.' },
-		{
-			name: 'Leaflet Map',
-			link: '/components/leaflet-map',
-			description: 'Interactive map integration.'
-		},
-		{ name: 'Polygon', link: '/components/polygon', description: 'Draw and edit polygons.' },
-		{ name: 'Marker', link: '/components/marker', description: 'Place markers on the map.' }
-		// Add more components as needed
-	];
-
-	const socialLinks = [
-		{ url: 'https://github.com/valiantlynx', icon: '/icons/github.svg' },
-		{ url: 'https://twitter.com/valiantlynxz', icon: '/icons/twitter.svg' },
-		{ url: 'https://www.linkedin.com/in/valiant-lynx-b3773224a', icon: '/icons/linkedin.svg' }
-	];
-
 	let codeSnippet = `
         &lt;script&gt;
         import { LeafletMap, TileLayer } from '$lib/index';
@@ -55,8 +36,6 @@
 </script>
 
 <svelte:head>
-	<!-- Prism.js JavaScript -->
-	<!-- Prism.js JavaScript -->
 	<!-- Prism.js JavaScript -->
 	<!-- Prism.js JavaScript -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
@@ -101,7 +80,7 @@
 	<section class="py-16 bg-gradient-to-br from-blue-600 to-pink-600 text-white">
 		<h2 class="text-4xl font-semibold text-center mb-12">Easy Integration</h2>
 
-		<div class="flex flex-wrap justify-center gap-8">
+		<div class="flex flex-wrap justify-center gap-8 mx-4">
 			<div class="max-w-md">
 				<h3 class="text-2xl font-semibold mb-4">Quick Start</h3>
 				<p class="text-lg mb-4">
@@ -110,25 +89,7 @@
 					>. Import <code class="bg-gray-700 px-2 py-1 rounded">&lt;LeafletMap&gt;</code> and
 					<code class="bg-gray-700 px-2 py-1 rounded">&lt;TileLayer&gt;</code> to create stunning maps.
 				</p>
-				<!-- snippet of code that will be displayed in the code snippet box, with syntax highlighting and copy button -->
-				<div class="max-w-sm mx-auto mt-14 bg-gray-900 rounded-lg overflow-hidden">
-					<div class="p-4">
-						<div class="flex items-center justify-between">
-							<span class="text-gray-200 text-xl font-bold">Code Snippet</span>
-							<button
-								id="copyButton"
-								class="px-4 py-2 text-white bg-teal-500 rounded hover:bg-teal-600 focus:outline-none focus:ring focus:ring-red-400"
-								on:click={copyToClipboard}>Copy</button
-							>
-						</div>
-					</div>
-
-					<div class="px-3 py-2">
-						<pre class="language-javascript"><code class="text-sm">
-        {@html codeSnippet}
-    </code></pre>
-					</div>
-				</div>
+			
 			</div>
 			<div class="max-w-md">
 				<h3 class="text-2xl font-semibold mb-4">Extensive Documentation</h3>
@@ -141,9 +102,29 @@
 					and <code class="bg-gray-700 px-2 py-1 rounded">TileLayer</code> in your projects.
 				</p>
 			</div>
+            <div class="w-full md:w-3/4">
+                	<!-- snippet of code that will be displayed in the code snippet box, with syntax highlighting and copy button -->
+				<div class="mx-auto mt-14 bg-gray-900 rounded-lg overflow-hidden">
+					<div class="p-4">
+						<div class="flex items-center justify-between">
+							<span class="text-gray-200 text-xl font-bold">Code Snippet</span>
+							<button
+								id="copyButton"
+								class="px-4 py-2 text-white bg-teal-500 rounded hover:bg-teal-600 focus:outline-none focus:ring focus:ring-red-400"
+								on:click={copyToClipboard}>Copy</button
+							>
+						</div>
+					</div>
+
+					<div class="px-3 py-2">
+						<pre class="language-html"><code class="text-sm">
+        {@html codeSnippet}
+    </code></pre>
+					</div>
+				</div>
+            </div>
 		</div>
 	</section>
-
 </main>
 
 <style>
