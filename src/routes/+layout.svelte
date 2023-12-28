@@ -103,7 +103,7 @@
 				<div class="collapse-title text-xl font-medium">How do I install Svelte-Leaflet?</div>
 				<div class="collapse-content">
 					<p>
-						Install Svelte-Leaflet by running `npm install svelte-leaflet` in your project. Then,
+						Install Svelte-Leaflet by running `npm install @valiantlynx/svelte-leaflet` in your project. Then,
 						import and use Leaflet components as needed.
 					</p>
 				</div>
