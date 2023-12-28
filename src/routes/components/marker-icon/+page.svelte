@@ -1,5 +1,5 @@
 <script>
-	import Polygon from '$lib/site-components/Polygon.svelte';
+	import MarkerIcon from '$lib/site-components/MarkerIcon.svelte';
 	import { ValiantRichText } from '@valiantlynx/svelte-rich-text';
 	import { initialData } from './data';
 	import {Breadcrumbs} from '@valiantlynx/svelte-ui';
@@ -14,18 +14,18 @@
 			url: '/components'
 		},
 		{
-			name: 'polygon',
-			url: '/components/polygon'
+			name: 'marker-icon',
+			url: '/components/marker-icon'
 		}
 	];
 </script>
 
 <Breadcrumbs {crumbs} />
 
-<h1 class="text-4xl font-bold text-center">Polygon</h1>
+<h1 class="text-4xl font-bold text-center">Marker Icon</h1>
 
 <div class="m-10">
-	<Polygon />
+	<MarkerIcon />
 </div>
 
 <ValiantRichText viewMode={true} {initialData} />

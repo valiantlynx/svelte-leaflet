@@ -1,5 +1,4 @@
 <script>
-	import MarkerIcon from '$lib/site-components/MarkerIcon.svelte';
 	import Polyline from '$lib/site-components/Polyline.svelte';
 	import Popup from '$lib/site-components/Popup.svelte';
 	import TileLayerWms from '$lib/site-components/TileLayer-WMS.svelte';

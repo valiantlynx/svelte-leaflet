@@ -1,5 +1,5 @@
 <script>
-	import Polygon from '$lib/site-components/Polygon.svelte';
+	import Polyline from '$lib/site-components/Polyline.svelte';
 	import { ValiantRichText } from '@valiantlynx/svelte-rich-text';
 	import { initialData } from './data';
 	import {Breadcrumbs} from '@valiantlynx/svelte-ui';
@@ -14,18 +14,18 @@
 			url: '/components'
 		},
 		{
-			name: 'polygon',
-			url: '/components/polygon'
+			name: 'polyline',
+			url: '/components/polyline'
 		}
 	];
 </script>
 
 <Breadcrumbs {crumbs} />
 
-<h1 class="text-4xl font-bold text-center">Polygon</h1>
+<h1 class="text-4xl font-bold text-center">Polyline</h1>
 
 <div class="m-10">
-	<Polygon />
+	<Polyline />
 </div>
 
 <ValiantRichText viewMode={true} {initialData} />
