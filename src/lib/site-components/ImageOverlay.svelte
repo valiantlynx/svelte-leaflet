@@ -1,5 +1,5 @@
 <script>
-	import { LeafletMap, ImageOverlay, TileLayer } from 'svelte-leafletjs';
+	import { LeafletMap, ImageOverlay, TileLayer } from '$lib/index';
 
 	const mapOptions = {
 		center: [1.364917, 103.822872],
