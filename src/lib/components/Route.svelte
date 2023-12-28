@@ -1,56 +1,62 @@
 <script>
-    import { createEventDispatcher, getContext, onDestroy, onMount } from 'svelte';
-    import L from 'leaflet';
-    import 'leaflet-routing-machine';
-    import { routeCoordinates } from '$lib/components/stores';
+	import { createEventDispatcher, getContext, onDestroy, onMount } from 'svelte';
+	import L from 'leaflet';
+	import 'leaflet-routing-machine';
+	import 'leaflet-routing-machine/dist/leaflet-routing-machine.css';
 
-    const { getMap } = getContext(L);
-    const dispatch = createEventDispatcher();
+	const { getMap } = getContext(L);
+	const dispatch = createEventDispatcher();
 
-    export let start = [];
-    export let destination = [];
-    export let waypoints = [];
+	export let start = [];
+	export let destination = [];
+	export let waypoints = [];
+	export let routeCoordinates = [];
 
-    let router;
+	export let summary = null;
+	export let instructions = null;
 
-    // This reactive statement ensures that waypointsArray is updated whenever start, destination, or waypoints change
-    $: waypointsArray = [start, ...waypoints, destination].map(wp => L.latLng(wp));
+	let router;
 
-    // Initialize the router when the component is mounted
-    onMount(() => {
-        if (start.length && destination.length) {
-            initializeRouter();
-        }
-    });
+	// This reactive statement ensures that waypointsArray is updated whenever start, destination, or waypoints change
+	$: waypointsArray = [start, ...waypoints, destination].map((wp) => L.latLng(wp));
 
-    // Function to initialize the router
-    function initializeRouter() {
-        router = L.Routing.control({
-            waypoints: waypointsArray,
-            routeWhileDragging: false,
-            showAlternatives: false
-        }).addTo(getMap());
+	// Initialize the router when the component is mounted
+	onMount(() => {
+		if (start.length && destination.length) {
+			initializeRouter();
+		}
+	});
 
-        router.on('routesfound', (e) => {
-            routeCoordinates.set(e.routes[0].coordinates);
-            dispatch('routeFound', e.routes[0]);
-        });
-    }
+	// Function to initialize the router
+	function initializeRouter() {
+		router = L.Routing.control({
+			waypoints: waypointsArray,
+			routeWhileDragging: false,
+			showAlternatives: false
+		}).addTo(getMap());
 
-    // Reactive statement to update the router's waypoints
-    $: {
-        if (router && start.length && destination.length) {
-            router.setWaypoints(waypointsArray);
-        }
-    }
+		router.on('routesfound', (e) => {
+			routeCoordinates = e.routes[0].coordinates;
+			summary = e.routes[0].summary;
+			instructions = e.routes[0].instructions;
+			dispatch('routeFound', e.routes[0]);
+		});
+	}
 
-    onDestroy(() => {
-        if (router) {
-            router.remove();
-        }
-    });
+	// Reactive statement to update the router's waypoints
+	$: {
+		if (router && start.length && destination.length) {
+			router.setWaypoints(waypointsArray);
+		}
+	}
+
+	onDestroy(() => {
+		if (router) {
+			router.remove();
+		}
+	});
 </script>
 
 {#if start.length && destination.length}
-    <slot {routeCoordinates} />
+	<slot {routeCoordinates} />
 {/if}
