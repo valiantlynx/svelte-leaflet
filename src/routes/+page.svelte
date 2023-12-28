@@ -81,7 +81,7 @@
                     </tbody>
                 </table>
             </div>
-            &lt;/div&gt; `;y
+            &lt;/div&gt; `;
 </script>
 
 <main class="container mx-auto px-4">
