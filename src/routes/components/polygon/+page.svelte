@@ -2,7 +2,7 @@
 	import Polygon from '$lib/site-components/Polygon.svelte';
 	import { ValiantRichText } from '@valiantlynx/svelte-rich-text';
 	import { initialData } from './data';
-	import {Breadcrumbs} from '@valiantlynx/svelte-ui';
+	import { Breadcrumbs } from '@valiantlynx/svelte-ui';
 
 	const crumbs = [
 		{
@@ -28,4 +28,4 @@
 	<Polygon />
 </div>
 
-<ValiantRichText  {initialData} />
+<ValiantRichText {initialData} />

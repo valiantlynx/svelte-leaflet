@@ -2,7 +2,7 @@
 	import Route from '$lib/site-components/Route.svelte';
 	import { ValiantRichText } from '@valiantlynx/svelte-rich-text';
 	import { initialData } from './data';
-	import {Breadcrumbs} from '@valiantlynx/svelte-ui';
+	import { Breadcrumbs } from '@valiantlynx/svelte-ui';
 	import { routeCoordinates, instructions, summary } from '$lib/components/stores';
 
 	let instructionsHTML = '';
@@ -53,4 +53,4 @@
 <h1 class="text-4xl font-bold text-center">instructions</h1>
 {@html instructionsHTML}
 
-<ValiantRichText  {initialData} />
+<ValiantRichText {initialData} />

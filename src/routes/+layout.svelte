@@ -6,8 +6,8 @@
 		{ url: 'https://twitter.com/valiantlynxz', icon: '/icons/twitter.svg' },
 		{ url: 'https://www.linkedin.com/in/valiant-lynx-b3773224a', icon: '/icons/linkedin.svg' }
 	];
-		// Sample data for components
-		let components = [
+	// Sample data for components
+	let components = [
 		{ name: 'Router', link: '/components/router', description: 'Efficient routing management.' },
 		{
 			name: 'Leaflet Map',
@@ -31,14 +31,16 @@
 		<div class="flex items-center space-x-4">
 			<!-- Navigation Links -->
 			<a href="/">
-				<h1 class="text-2xl font-bold ">Svelte Leaflet</h1>
+				<h1 class="text-2xl font-bold">Svelte Leaflet</h1>
 			</a>
 		</div>
 
 		<!-- Social Media Links -->
 		<div class="flex items-center space-x-4">
 			<!-- Componest button -->
-			<a href="/components" class="btn btn-primary bg-gradient-to-r from-blue-600 to-pink-600"> Components </a>
+			<a href="/components" class="btn btn-primary bg-gradient-to-r from-blue-600 to-pink-600">
+				Components
+			</a>
 			{#each socialLinks as { icon, url }}
 				<a href={url} target="_blank" rel="noopener noreferrer">
 					<img src={icon} class=" w-6 h-6" alt="Social Media Icon for valiantlynx" />
@@ -84,9 +86,7 @@
 	<h2 class="text-4xl font-semibold text-center mb-12">Frequently Asked Questions</h2>
 	<div class="accordion max-w-4xl mx-auto">
 		<div class="join join-vertical w-full">
-			<div
-				class="collapse collapse-arrow border border-base-300 bg-white bg-opacity-10 rounded-md"
-			>
+			<div class="collapse collapse-arrow border border-base-300 bg-white bg-opacity-10 rounded-md">
 				<input type="radio" name="my-accordion" />
 				<div class="collapse-title text-xl font-medium">What is Svelte-Leaflet?</div>
 				<div class="collapse-content">
@@ -98,9 +98,7 @@
 			</div>
 
 			<!-- More FAQ items -->
-			<div
-				class="collapse collapse-arrow border border-base-300 bg-white bg-opacity-10 rounded-md"
-			>
+			<div class="collapse collapse-arrow border border-base-300 bg-white bg-opacity-10 rounded-md">
 				<input type="radio" name="my-accordion" />
 				<div class="collapse-title text-xl font-medium">How do I install Svelte-Leaflet?</div>
 				<div class="collapse-content">
@@ -111,17 +109,15 @@
 				</div>
 			</div>
 
-			<div
-				class="collapse collapse-arrow border border-base-300 bg-white bg-opacity-10 rounded-md"
-			>
+			<div class="collapse collapse-arrow border border-base-300 bg-white bg-opacity-10 rounded-md">
 				<input type="radio" name="my-accordion" />
 				<div class="collapse-title text-xl font-medium">
 					How do I use the Leaflet Map component in my project?
 				</div>
 				<div class="collapse-content">
 					<p>
-						The Leaflet Map component can be easily integrated by importing it into your Svelte
-						file and adding it as a Svelte component with custom properties for customization.
+						The Leaflet Map component can be easily integrated by importing it into your Svelte file
+						and adding it as a Svelte component with custom properties for customization.
 					</p>
 				</div>
 			</div>

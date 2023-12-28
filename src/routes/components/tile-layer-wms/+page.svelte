@@ -2,7 +2,7 @@
 	import TileLayerWms from '$lib/site-components/TileLayer-WMS.svelte';
 	import { ValiantRichText } from '@valiantlynx/svelte-rich-text';
 	import { initialData } from './data';
-	import {Breadcrumbs} from '@valiantlynx/svelte-ui';
+	import { Breadcrumbs } from '@valiantlynx/svelte-ui';
 
 	const crumbs = [
 		{
@@ -28,4 +28,4 @@
 	<TileLayerWms />
 </div>
 
-<ValiantRichText  {initialData} />
+<ValiantRichText {initialData} />

@@ -38,6 +38,9 @@
 <svelte:head>
 	<!-- Prism.js JavaScript -->
 	<!-- Prism.js JavaScript -->
+	<!-- Prism.js JavaScript -->
+	<!-- Prism.js JavaScript -->
+	<!-- Prism.js JavaScript -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
 	<!-- Prism.js theme CSS -->
 	<link
@@ -89,7 +92,6 @@
 					>. Import <code class="bg-gray-700 px-2 py-1 rounded">&lt;LeafletMap&gt;</code> and
 					<code class="bg-gray-700 px-2 py-1 rounded">&lt;TileLayer&gt;</code> to create stunning maps.
 				</p>
-			
 			</div>
 			<div class="max-w-md">
 				<h3 class="text-2xl font-semibold mb-4">Extensive Documentation</h3>
@@ -102,8 +104,8 @@
 					and <code class="bg-gray-700 px-2 py-1 rounded">TileLayer</code> in your projects.
 				</p>
 			</div>
-            <div class="w-full md:w-3/4">
-                	<!-- snippet of code that will be displayed in the code snippet box, with syntax highlighting and copy button -->
+			<div class="w-full md:w-3/4">
+				<!-- snippet of code that will be displayed in the code snippet box, with syntax highlighting and copy button -->
 				<div class="mx-auto mt-14 bg-gray-900 rounded-lg overflow-hidden">
 					<div class="p-4">
 						<div class="flex items-center justify-between">
@@ -122,7 +124,7 @@
     </code></pre>
 					</div>
 				</div>
-            </div>
+			</div>
 		</div>
 	</section>
 </main>

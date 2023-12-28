@@ -2,7 +2,7 @@
 	import MarkerIcon from '$lib/site-components/MarkerIcon.svelte';
 	import { ValiantRichText } from '@valiantlynx/svelte-rich-text';
 	import { initialData } from './data';
-	import {Breadcrumbs} from '@valiantlynx/svelte-ui';
+	import { Breadcrumbs } from '@valiantlynx/svelte-ui';
 
 	const crumbs = [
 		{
@@ -28,4 +28,4 @@
 	<MarkerIcon />
 </div>
 
-<ValiantRichText  {initialData} />
+<ValiantRichText {initialData} />

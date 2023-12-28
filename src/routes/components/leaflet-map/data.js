@@ -2,7 +2,10 @@ export const initialData = [
 	{
 		id: '12',
 		name: 'header',
-		data: { text: 'Example in Code (this is NOT the actual code. docs is still in development)', level: 1 }
+		data: {
+			text: 'Example in Code (this is NOT the actual code. docs is still in development)',
+			level: 1
+		}
 	},
 	{
 		id: '140',
