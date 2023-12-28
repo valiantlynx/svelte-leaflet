@@ -18,11 +18,15 @@
 
 		<div class="flex items-center space-x-4">
 			<!-- Navigation Links -->
-			<h1 class="text-2xl font-bold">Svelte Leaflet</h1>
+			<a href="/">
+				<h1 class="text-2xl font-bold ">Svelte Leaflet</h1>
+			</a>
 		</div>
 
 		<!-- Social Media Links -->
 		<div class="flex items-center space-x-4">
+			<!-- Componest button -->
+			<a href="/components" class="btn btn-primary bg-gradient-to-r from-blue-600 to-pink-600"> Components </a>
 			{#each socialLinks as { icon, url }}
 				<a href={url} target="_blank" rel="noopener noreferrer">
 					<img src={icon} class=" w-6 h-6" alt="Social Media Icon for valiantlynx" />
@@ -32,6 +36,6 @@
 	</div>
 </nav>
 
-<main class="p-4 bg-base-100 text-base-content">
+<main class="bg-base-100 text-base-content">
 	<slot />
 </main>
