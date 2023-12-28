@@ -46,7 +46,7 @@
 	/>
 </svelte:head>
 
-<main class="container mx-auto px-4">
+<main class="container mx-auto">
 	<section class="text-center py-16 bg-gradient-to-br from-blue-600 to-indigo-800">
 		<h1 class="text-6xl font-bold text-white">Svelte-Leaflet</h1>
 		<p class="text-2xl mt-6 text-gray-300 animate-bounce">Map Your Ideas into Reality</p>
