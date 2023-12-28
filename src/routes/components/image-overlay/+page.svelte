@@ -28,4 +28,4 @@
 	<ImageOverlay />
 </div>
 
-<ValiantRichText viewMode={true} {initialData} />
+<ValiantRichText  {initialData} />

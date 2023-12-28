@@ -53,4 +53,4 @@
 <h1 class="text-4xl font-bold text-center">instructions</h1>
 {@html instructionsHTML}
 
-<ValiantRichText viewMode={true} {initialData} />
+<ValiantRichText  {initialData} />
