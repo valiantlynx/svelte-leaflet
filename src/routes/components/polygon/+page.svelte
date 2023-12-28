@@ -1,5 +1,5 @@
 <script>
-	import ScaleControl from '$lib/site-components/ScaleControl.svelte';
+	import Polygon from '$lib/site-components/Polygon.svelte';
 	import { ValiantRichText } from '@valiantlynx/svelte-rich-text';
 	import { initialData } from './data';
 	import {Breadcrumbs} from '@valiantlynx/svelte-ui';
@@ -14,18 +14,18 @@
 			url: '/components'
 		},
 		{
-			name: 'scale-control',
-			url: '/components/scale-control'
+			name: 'polygon',
+			url: '/components/polygon'
 		}
 	];
 </script>
 
 <Breadcrumbs {crumbs} />
 
-<h1 class="text-4xl font-bold text-center">Scale Control</h1>
+<h1 class="text-4xl font-bold text-center">Polygon</h1>
 
 <div class="m-10">
-	<ScaleControl />
+	<Polygon />
 </div>
 
 <ValiantRichText viewMode={true} {initialData} />

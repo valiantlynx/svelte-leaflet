@@ -1,11 +1,7 @@
 <script>
-	import Polyline from '$lib/site-components/Polyline.svelte';
-	import Popup from '$lib/site-components/Popup.svelte';
 	import TileLayerWms from '$lib/site-components/TileLayer-WMS.svelte';
 	import TileLayer from '$lib/site-components/TileLayer.svelte';
 	import Tooltip from '$lib/site-components/Tooltip.svelte';
-	import Rectangle from '$lib/site-components/Rectangle.svelte';
-	import ScaleControl from '$lib/site-components/ScaleControl.svelte';
 </script>
 
 <h1 class="text-4xl font-bold text-center">Components</h1>
