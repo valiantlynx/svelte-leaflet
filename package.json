@@ -86,7 +86,7 @@
 	"types": "./dist/index.d.ts",
 	"type": "module",
 	"dependencies": {
-		"@valiantlynx/svelte-rich-text": "^0.0.5",
+		"@valiantlynx/svelte-rich-text": "^0.0.6",
 		"@valiantlynx/svelte-ui": "0.0.22",
 		"leaflet": "^1.9.4",
 		"leaflet.fullscreen": "^3.0.0"
