@@ -72,7 +72,7 @@
 					<td class="border p-2">{methodName}</td>
 					<td class="border p-2">
 						{methodDetails.description}
-						<a href={methodDetails.link} target="_blank">{methodDetails.link}</a>
+						<a href={methodDetails.link} target="_blank">more info</a>
 					</td>
 				</tr>
 			{/each}
