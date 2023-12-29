@@ -5,7 +5,7 @@
 		center: [1.364917, 103.822872],
 		zoom: 11
 	};
-	const tileUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+	const tileUrl = 'http://{s}.tile.thunderforest.com/transport-dark/{z}/{x}/{y}.png';
 	const tileLayerOptions = {
 		minZoom: 0,
 		maxZoom: 20,
