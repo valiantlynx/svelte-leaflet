@@ -60,7 +60,7 @@
 
 <h1 class="text-4xl font-bold text-center">{title}</h1>
 
-<div class="m-10 h-96">
+<div class="m-10">
 	<slot />
 </div>
 
@@ -69,7 +69,7 @@
 <form
 	action="/components/{url}?/save"
 	method="POST"
-	class="rounded-box p-1 items-center mt-3 bg-slate-200 text-gray-700"
+	class="rounded-box p-1 items-center mt-3 bg-slate-200 text-gray-700 mx-7"
 	use:enhance={saveData}
 >
 	<ValiantRichText bind:initialData={$contentData} />

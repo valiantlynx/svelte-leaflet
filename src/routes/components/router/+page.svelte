@@ -4,11 +4,13 @@
 	import { routeCoordinates, instructions, summary } from '$lib/components/stores';
 
 	import jsonData from './data.json';
-	console.log($summary);
 </script>
 
 <ComponentStructure title="Router" url="router" {jsonData}>
-	<Route />
+	<div class="h-96">
+		<Route />
+	</div>
+	
 	<div slot="more">
 		<div>
 			<h1 class="text-4xl font-bold text-center">routeCoordinates</h1>
