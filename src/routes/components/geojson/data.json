@@ -11,7 +11,7 @@
     "id": "140",
     "name": "code",
     "data": {
-      "text": "ass\n",
+      "text": "<script>\n\timport { onMount } from 'svelte';\n\timport { LeafletMap, GeoJSON, TileLayer } from '$lib/index';\n\n\tlet geoJsonData;\n\n\tonMount(async () => {\n\t\tconst response = await fetch('/example.geojson');\n\t\tgeoJsonData = await response.json();\n\t});\n\n\tconst mapOptions = {\n\t\tcenter: [1.250111, 103.830933],\n\t\tzoom: 13\n\t};\n\tconst tileUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';\n\tconst tileLayerOptions = {\n\t\tminZoom: 0,\n\t\tmaxZoom: 20,\n\t\tmaxNativeZoom: 19,\n\t\tattribution: '© OpenStreetMap contributors'\n\t};\n\tconst geoJsonOptions = {\n\t\tstyle: function (geoJsonFeature) {\n\t\t\tconsole.log('style', geoJsonFeature);\n\t\t\treturn {};\n\t\t},\n\t\tonEachFeature: function (feature, layer) {\n\t\t\tconsole.log('onEachFeature', feature, layer);\n\t\t}\n\t};\n</script>\n\n<div class=\"mb-4 h-96\">\n\t<LeafletMap options={mapOptions}>\n\t\t<TileLayer url={tileUrl} options={tileLayerOptions} />\n\t\t<GeoJSON data={geoJsonData} options={geoJsonOptions} />\n\t</LeafletMap>\n</div>\n\n",
       "lang": "svelte"
     }
   }

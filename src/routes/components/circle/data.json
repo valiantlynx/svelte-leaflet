@@ -11,7 +11,7 @@
     "id": "140",
     "name": "code",
     "data": {
-      "text": "ass\n",
+      "text": "<script>\n\timport { LeafletMap, Circle, Popup, TileLayer, Tooltip } from '$lib/index';\n\n\tconst mapOptions = {\n\t\tcenter: [1.250111, 103.830933],\n\t\tzoom: 14\n\t};\n\tconst tileUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';\n\tconst tileLayerOptions = {\n\t\tminZoom: 0,\n\t\tmaxZoom: 20,\n\t\tmaxNativeZoom: 19,\n\t\tattribution: '© OpenStreetMap contributors'\n\t};\n\n\tlet circleInstance;\n</script>\n\n<div class=\"mb-4 h-96\">\n\t<LeafletMap options={mapOptions}>\n\t\t<TileLayer url={tileUrl} options={tileLayerOptions} />\n\t\t<Circle\n\t\t\tbind:this={circleInstance}\n\t\t\tlatLng={[1.250111, 103.830933]}\n\t\t\tradius={1000}\n\t\t\tcolor=\"#ff0000\"\n\t\t\tfillColor=\"#ff0000\"\n\t\t>\n\t\t\t<Popup>Sentosa</Popup>\n\t\t\t<Tooltip>Sentosa</Tooltip>\n\t\t</Circle>\n\t</LeafletMap>\n</div>\n\n",
       "lang": "svelte"
     }
   }

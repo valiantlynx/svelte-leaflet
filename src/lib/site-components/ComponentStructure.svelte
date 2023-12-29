@@ -69,7 +69,7 @@
 <form
 	action="/components/{url}?/save"
 	method="POST"
-	class="rounded-box p-1 items-center mt-3 bg-slate-200 text-gray-700 mx-7"
+	class="rounded-box p-10 items-center mt-3 bg-gradient-to-bl from-purple-500 to-pink-600 text-white mx-7"
 	use:enhance={saveData}
 >
 	<ValiantRichText bind:initialData={$contentData} />

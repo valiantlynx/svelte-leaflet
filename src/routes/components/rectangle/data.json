@@ -11,7 +11,7 @@
     "id": "140",
     "name": "code",
     "data": {
-      "text": "ass\n",
+      "text": "<script>\n\timport { LeafletMap, Popup, Rectangle, TileLayer, Tooltip } from '$lib/index';\n\n\tconst mapOptions = {\n\t\tcenter: [1.250111, 103.830933],\n\t\tzoom: 14\n\t};\n\tconst tileUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';\n\tconst tileLayerOptions = {\n\t\tminZoom: 0,\n\t\tmaxZoom: 20,\n\t\tmaxNativeZoom: 19,\n\t\tattribution: '© OpenStreetMap contributors'\n\t};\n\tconst latLngBounds = [\n\t\t[1.23506, 103.80352],\n\t\t[1.26278, 103.85065]\n\t];\n\n\tlet rectangleInstance;\n</script>\n\n<div class=\"mb-4 h-96\">\n\t<LeafletMap options={mapOptions}>\n\t\t<TileLayer url={tileUrl} options={tileLayerOptions} />\n\t\t<Rectangle bind:this={rectangleInstance} {latLngBounds} color=\"#ff0000\" fillColor=\"#ff0000\">\n\t\t\t<Popup>Sentosa</Popup>\n\t\t\t<Tooltip>Sentosa</Tooltip>\n\t\t</Rectangle>\n\t</LeafletMap>\n</div>\n\n",
       "lang": "svelte"
     }
   }

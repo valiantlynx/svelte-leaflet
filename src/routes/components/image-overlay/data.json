@@ -11,7 +11,7 @@
     "id": "140",
     "name": "code",
     "data": {
-      "text": "ass\n",
+      "text": "<script>\n\timport { LeafletMap, ImageOverlay, TileLayer } from '$lib/index';\n\n\tconst mapOptions = {\n\t\tcenter: [1.364917, 103.822872],\n\t\tzoom: 11\n\t};\n\tconst tileUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';\n\tconst tileLayerOptions = {\n\t\tminZoom: 0,\n\t\tmaxZoom: 20,\n\t\tmaxNativeZoom: 19,\n\t\tattribution: '© OpenStreetMap contributors'\n\t};\n\tconst imageOverlayOptions = {\n\t\topacity: 0.5\n\t};\n\tconst bounds = [\n\t\t[1.17, 103.565],\n\t\t[1.4836, 104.143]\n\t];\n\n\n</script>\n\n\t<div class=\"mb-4 h-96\">\n\t\t<LeafletMap options={mapOptions}>\n\t\t\t<TileLayer url={tileUrl} options={tileLayerOptions} />\n\t\t\t<ImageOverlay\n\t\t\t\timageUrl=\"/dpsri_70km_2021082110500000dBR.dpsri.png\"\n\t\t\t\t{bounds}\n\t\t\t\toptions={imageOverlayOptions}\n\t\t\t/>\n\t\t</LeafletMap>\n\t</div>\n\n",
       "lang": "svelte"
     }
   }

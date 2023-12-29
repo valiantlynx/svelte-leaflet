@@ -2,6 +2,7 @@
 	import '../app.css';
 	import 'leaflet/dist/leaflet.css';
 	import { Toaster } from 'svelte-french-toast';
+	
 	const socialLinks = [
 		{ url: 'https://github.com/valiantlynx/svelte-leaflet', icon: '/icons/github.svg' },
 		{ url: 'https://twitter.com/valiantlynxz', icon: '/icons/twitter.svg' },
@@ -24,6 +25,7 @@
 <svelte:head />
 
 <Toaster />
+
 <nav class="bg-base-300 p-4 text text-base-content">
 	<div class="flex items-center justify-between">
 		<!-- Your logo or site name -->

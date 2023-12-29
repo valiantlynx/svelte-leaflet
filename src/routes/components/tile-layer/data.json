@@ -11,7 +11,7 @@
     "id": "140",
     "name": "code",
     "data": {
-      "text": "ass\n",
+      "text": "<script>\n\timport { LeafletMap, TileLayer } from '$lib/index';\n\n\tconst mapOptions = {\n\t\tcenter: [1.364917, 103.822872],\n\t\tzoom: 11\n\t};\n\tconst tileUrl = 'http://{s}.tile.thunderforest.com/transport-dark/{z}/{x}/{y}.png';\n\tconst tileLayerOptions = {\n\t\tminZoom: 0,\n\t\tmaxZoom: 20,\n\t\tmaxNativeZoom: 19,\n\t\tattribution: '© OpenStreetMap contributors'\n\t};\n\n\tlet tileLayer;\n</script>\n\n<div class=\"mb-4 h-96\">\n\t<LeafletMap options={mapOptions}>\n\t\t<TileLayer bind:this={tileLayer} url={tileUrl} options={tileLayerOptions} />\n\t</LeafletMap>\n</div>\n\n",
       "lang": "svelte"
     }
   }
