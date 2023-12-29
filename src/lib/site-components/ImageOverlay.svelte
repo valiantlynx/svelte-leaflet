@@ -19,6 +19,35 @@
 		[1.17, 103.565],
 		[1.4836, 104.143]
 	];
+
+	const properties = {
+		imageUrl: {
+			type: "String",
+			description: "URL to image file."
+		},
+		opacity: {
+			type: "Number",
+			default: 1.0,
+			description: "Opacity of the image overlay."
+		},
+		zIndex: {
+			type: "Number",
+			default: 1,
+			description: "Explicit zIndex of the layer."
+		},
+		options: {
+			type: "Object",
+			default: "undefined",
+			description: "Options."
+		}
+	};
+
+	const methods = {
+		getImageOverlay: {
+			description: "Returns the underlying Leaflet ImageOverlay object instance.",
+			link: "https://leafletjs.com/reference.html#imageoverlay"
+		}
+	};
 </script>
 
 <div class="mb-8">
@@ -37,10 +66,9 @@
 
 	<h2 class="text-2xl font-semibold mb-4">Properties</h2>
 	<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-		<code class="p-2 border rounded">imageUrl | URL to image file. | String</code>
-		<code class="p-2 border rounded">opacity | Opacity of the image overlay. | Number(1.0)</code>
-		<code class="p-2 border rounded">zIndex | Explicit zIndex of the layer. | Number(1)</code>
-		<code class="p-2 border rounded">options | Options. | Object(undefined)</code>
+		{#each Object.entries(properties) as [key, value]}
+			<code class="p-2 border rounded">{key} | {value.description} | {value.type}({value.default})</code>
+		{/each}
 	</div>
 
 	<h2 class="text-2xl font-semibold mb-4">Methods</h2>
@@ -52,15 +80,15 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr>
-				<td class="border p-2">getImageOverlay()</td>
-				<td class="border p-2">
-					Returns the underlying Leaflet <code>ImageOverlay</code> object instance. See
-					<a href="https://leafletjs.com/reference.html#imageoverlay" target="_blank"
-						>https://leafletjs.com/reference.html#imageoverlay</a
-					>
-				</td>
-			</tr>
+			{#each Object.entries(methods) as [methodName, methodDetails]}
+				<tr>
+					<td class="border p-2">{methodName}</td>
+					<td class="border p-2">
+						{methodDetails.description}
+						<a href={methodDetails.link} target="_blank">More Info</a>
+					</td>
+				</tr>
+			{/each}
 		</tbody>
 	</table>
 </div>
