@@ -60,7 +60,7 @@
 
 <h1 class="text-4xl font-bold text-center">{title}</h1>
 
-<div class="m-10">
+<div class="m-10 h-96">
 	<slot />
 </div>
 
