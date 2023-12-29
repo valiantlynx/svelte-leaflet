@@ -12,6 +12,49 @@
 		maxNativeZoom: 19,
 		attribution: '© OpenStreetMap contributors'
 	};
+
+	const properties = {
+		latLng: {
+			type: "LatLng",
+			description: "Geographical point."
+		},
+		zIndexOffset: {
+			type: "Number",
+			default: 0,
+			description: "z-index offset."
+		},
+		icon: {
+			type: "String",
+			description: "TODO L.Icon.Default"
+		},
+		opacity: {
+			type: "Number",
+			default: 1.0,
+			description: "Opacity."
+		},
+		rotationAngle: {
+			type: "Number",
+			default: 0,
+			description: "Rotation angle."
+		},
+		rotationOrigin: {
+			type: "String",
+			default: "center bottom",
+			description: "Rotation origin."
+		},
+		options: {
+			type: "Object",
+			default: "undefined",
+			description: "Options."
+		}
+	};
+
+	const methods = {
+		getMarker: {
+			description: "Returns the underlying Leaflet Marker object instance.",
+			link: "https://leafletjs.com/reference.html#marker"
+		}
+	};
 </script>
 
 <div class="mb-8">
@@ -27,15 +70,9 @@
 
 	<h2 class="text-2xl font-semibold mb-4">Properties</h2>
 	<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-		<code class="p-2 border rounded">latLng | Geographical point. | LatLng</code>
-		<code class="p-2 border rounded">zIndexOffset | z-index offset. | Number(0)</code>
-		<code class="p-2 border rounded">icon | TODO L.Icon.Default | String</code>
-		<code class="p-2 border rounded">opacity | Opacity. | Number(1.0)</code>
-		<code class="p-2 border rounded">rotationAngle | Rotation angle. | Number(0)</code>
-		<code class="p-2 border rounded"
-			>rotationOrigin | Rotation origin. | String("center bottom")</code
-		>
-		<code class="p-2 border rounded">options | Options. | Object(undefined)</code>
+		{#each Object.entries(properties) as [key, value]}
+			<code class="p-2 border rounded">{key} | {value.description} | {value.type}({value.default})</code>
+		{/each}
 	</div>
 
 	<h2 class="text-2xl font-semibold mb-4">Methods</h2>
@@ -47,15 +84,15 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr>
-				<td class="border p-2">getMarker()</td>
-				<td class="border p-2"
-					>Returns the underlying Leaflet <code>Marker</code> object instance. See
-					<a href="https://leafletjs.com/reference.html#marker" target="_blank"
-						>https://leafletjs.com/reference.html#marker</a
-					></td
-				>
-			</tr>
+			{#each Object.entries(methods) as [methodName, methodDetails]}
+				<tr>
+					<td class="border p-2">{methodName}</td>
+					<td class="border p-2">
+						{methodDetails.description}
+						<a href={methodDetails.link} target="_blank">More Info</a>
+					</td>
+				</tr>
+			{/each}
 		</tbody>
 	</table>
 </div>
