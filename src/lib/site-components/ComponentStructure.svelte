@@ -64,6 +64,8 @@
 	<slot />
 </div>
 
+<slot name="more" />
+
 <form
 	action="/components/{url}?/save"
 	method="POST"
