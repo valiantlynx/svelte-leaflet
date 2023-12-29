@@ -1,8 +1,22 @@
 <script>
 	import LeafletMap from '$lib/site-components/LeafletMap.svelte';
-	import { ValiantRichText } from '@valiantlynx/svelte-rich-text';
-	import { initialData } from './data';
+	import { ValiantRichText, getData } from '@valiantlynx/svelte-rich-text';
 	import { Breadcrumbs } from '@valiantlynx/svelte-ui';
+	import toast from 'svelte-french-toast';
+
+	// import json file with data
+	import jsonData from './data1.json';
+
+	const saveData = (data) => {
+		try {
+			console.log("data", data);
+			
+			toast.success('Docs post updated successfully');
+		} catch (error) {
+			console.log(error);
+			toast.error('Something went wrong please try again');
+		}
+	};
 
 	const crumbs = [
 		{
@@ -28,4 +42,12 @@
 	<LeafletMap />
 </div>
 
-<ValiantRichText {initialData} />
+<ValiantRichText initialData={jsonData} />
+<button
+	class="btn btn-primary"
+	on:click={() => {
+		const data = getData(); // returns dataBlock[] type
+		console.log("button clicked", data);
+		saveData(data);
+	}}>Save</button
+>
