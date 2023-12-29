@@ -5,7 +5,7 @@
 	let geoJsonData;
 
 	onMount(async () => {
-		const response = await fetch('example.geojson');
+		const response = await fetch('/example.geojson');
 		geoJsonData = await response.json();
 	});
 
