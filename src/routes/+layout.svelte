@@ -2,7 +2,6 @@
 	import '../app.css';
 	import 'leaflet/dist/leaflet.css';
 	import { Toaster } from 'svelte-french-toast';
-
 	const socialLinks = [
 		{ url: 'https://github.com/valiantlynx/svelte-leaflet', icon: '/icons/github.svg' },
 		{ url: 'https://twitter.com/valiantlynxz', icon: '/icons/twitter.svg' },
