@@ -2,7 +2,7 @@
 	import '../app.css';
 	import 'leaflet/dist/leaflet.css';
 	import { Toaster } from 'svelte-french-toast';
-	
+
 	const socialLinks = [
 		{ url: 'https://github.com/valiantlynx/svelte-leaflet', icon: '/icons/github.svg' },
 		{ url: 'https://twitter.com/valiantlynxz', icon: '/icons/twitter.svg' },
@@ -55,8 +55,7 @@
 	</div>
 </nav>
 
-	<slot />
-
+<slot />
 
 <section class="py-16">
 	<h2 class="text-4xl font-semibold text-center mb-12 text-white">Explore Our Components</h2>
@@ -107,8 +106,8 @@
 				<div class="collapse-title text-xl font-medium">How do I install Svelte-Leaflet?</div>
 				<div class="collapse-content">
 					<p>
-						Install Svelte-Leaflet by running `npm install @valiantlynx/svelte-leaflet` in your project. Then,
-						import and use Leaflet components as needed.
+						Install Svelte-Leaflet by running `npm install @valiantlynx/svelte-leaflet` in your
+						project. Then, import and use Leaflet components as needed.
 					</p>
 				</div>
 			</div>
