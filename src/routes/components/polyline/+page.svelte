@@ -1,31 +1,10 @@
 <script>
+	import ComponentStructure from '$lib/site-components/ComponentStructure.svelte';
 	import Polyline from '$lib/site-components/Polyline.svelte';
-	import { ValiantRichText } from '@valiantlynx/svelte-rich-text';
-	import { initialData } from './data';
-	import { Breadcrumbs } from '@valiantlynx/svelte-ui';
 
-	const crumbs = [
-		{
-			name: 'Home',
-			url: '/'
-		},
-		{
-			name: 'components',
-			url: '/components'
-		},
-		{
-			name: 'polyline',
-			url: '/components/polyline'
-		}
-	];
+	import jsonData from './data.json';
 </script>
 
-<Breadcrumbs {crumbs} />
-
-<h1 class="text-4xl font-bold text-center">Polyline</h1>
-
-<div class="m-10">
+<ComponentStructure title="Polyline" url="polyline" {jsonData}>
 	<Polyline />
-</div>
-
-<ValiantRichText {initialData} />
+</ComponentStructure>

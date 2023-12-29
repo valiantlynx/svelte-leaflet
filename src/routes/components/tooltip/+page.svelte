@@ -1,31 +1,10 @@
 <script>
+	import ComponentStructure from '$lib/site-components/ComponentStructure.svelte';
 	import Tooltip from '$lib/site-components/Tooltip.svelte';
-	import { ValiantRichText } from '@valiantlynx/svelte-rich-text';
-	import { initialData } from './data';
-	import { Breadcrumbs } from '@valiantlynx/svelte-ui';
 
-	const crumbs = [
-		{
-			name: 'Home',
-			url: '/'
-		},
-		{
-			name: 'components',
-			url: '/components'
-		},
-		{
-			name: 'tooltip',
-			url: '/components/tooltip'
-		}
-	];
+	import jsonData from './data.json';
 </script>
 
-<Breadcrumbs {crumbs} />
-
-<h1 class="text-4xl font-bold text-center">Tooltip</h1>
-
-<div class="m-10">
+<ComponentStructure title="tooltip" url="tooltip" {jsonData}>
 	<Tooltip />
-</div>
-
-<ValiantRichText {initialData} />
+</ComponentStructure>

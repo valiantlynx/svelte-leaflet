@@ -1,31 +1,10 @@
 <script>
+	import ComponentStructure from '$lib/site-components/ComponentStructure.svelte';
 	import ImageOverlay from '$lib/site-components/ImageOverlay.svelte';
-	import { ValiantRichText } from '@valiantlynx/svelte-rich-text';
-	import { initialData } from './data';
-	import { Breadcrumbs } from '@valiantlynx/svelte-ui';
 
-	const crumbs = [
-		{
-			name: 'Home',
-			url: '/'
-		},
-		{
-			name: 'components',
-			url: '/components'
-		},
-		{
-			name: 'image-overlay',
-			url: '/components/image-overlay'
-		}
-	];
+	import jsonData from './data.json';
 </script>
 
-<Breadcrumbs {crumbs} />
-
-<h1 class="text-4xl font-bold text-center">Image Overlay</h1>
-
-<div class="m-10">
+<ComponentStructure title="Image Overlay" url="image-overlay" {jsonData}>
 	<ImageOverlay />
-</div>
-
-<ValiantRichText {initialData} />
+</ComponentStructure>

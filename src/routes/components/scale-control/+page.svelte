@@ -1,31 +1,10 @@
 <script>
+	import ComponentStructure from '$lib/site-components/ComponentStructure.svelte';
 	import ScaleControl from '$lib/site-components/ScaleControl.svelte';
-	import { ValiantRichText } from '@valiantlynx/svelte-rich-text';
-	import { initialData } from './data';
-	import { Breadcrumbs } from '@valiantlynx/svelte-ui';
 
-	const crumbs = [
-		{
-			name: 'Home',
-			url: '/'
-		},
-		{
-			name: 'components',
-			url: '/components'
-		},
-		{
-			name: 'scale-control',
-			url: '/components/scale-control'
-		}
-	];
+	import jsonData from './data.json';
 </script>
 
-<Breadcrumbs {crumbs} />
-
-<h1 class="text-4xl font-bold text-center">Scale Control</h1>
-
-<div class="m-10">
+<ComponentStructure title="Scale Control" url="scale-control" {jsonData}>
 	<ScaleControl />
-</div>
-
-<ValiantRichText {initialData} />
+</ComponentStructure>

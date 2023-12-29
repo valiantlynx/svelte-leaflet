@@ -1,31 +1,10 @@
 <script>
+	import ComponentStructure from '$lib/site-components/ComponentStructure.svelte';
 	import MarkerIcon from '$lib/site-components/MarkerIcon.svelte';
-	import { ValiantRichText } from '@valiantlynx/svelte-rich-text';
-	import { initialData } from './data';
-	import { Breadcrumbs } from '@valiantlynx/svelte-ui';
 
-	const crumbs = [
-		{
-			name: 'Home',
-			url: '/'
-		},
-		{
-			name: 'components',
-			url: '/components'
-		},
-		{
-			name: 'marker-icon',
-			url: '/components/marker-icon'
-		}
-	];
+	import jsonData from './data.json';
 </script>
 
-<Breadcrumbs {crumbs} />
-
-<h1 class="text-4xl font-bold text-center">Marker Icon</h1>
-
-<div class="m-10">
+<ComponentStructure title="Marker Icon" url="marker-icon" {jsonData}>
 	<MarkerIcon />
-</div>
-
-<ValiantRichText {initialData} />
+</ComponentStructure>
