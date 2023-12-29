@@ -53,9 +53,8 @@
 	</div>
 </nav>
 
-<main class="bg-base-100 text-base-content">
 	<slot />
-</main>
+
 
 <section class="py-16">
 	<h2 class="text-4xl font-semibold text-center mb-12 text-white">Explore Our Components</h2>
