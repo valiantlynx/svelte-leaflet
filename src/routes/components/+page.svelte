@@ -1,5 +1,6 @@
 <script>
-	// Sample data for components
+	import { Breadcrumbs } from '@valiantlynx/svelte-ui';
+
 	let components = [
 		{
 			name: 'Router',
@@ -104,7 +105,20 @@
 			icon: '/icons/image-overlay.svg'
 		}
 	];
+	const crumbs = [
+		{
+			name: 'Home',
+			url: '/'
+		},
+		{
+			name: 'components',
+			url: '/components'
+		}
+	];
 </script>
+<div class="ml-4">
+	<Breadcrumbs {crumbs} />
+</div>
 
 <div class="container mx-auto p-8">
 	<h1 class="text-5xl font-bold text-center mb-10">Explore Our Components</h1>

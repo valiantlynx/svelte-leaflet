@@ -53,7 +53,9 @@
 	];
 </script>
 
-<Breadcrumbs {crumbs} />
+<div class="ml-4">
+	<Breadcrumbs {crumbs} />
+</div>
 
 <h1 class="text-4xl font-bold text-center">Marker Icon</h1>
 

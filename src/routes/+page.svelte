@@ -49,13 +49,13 @@
 	/>
 </svelte:head>
 
-<main class="container mx-auto">
-	<section class="text-center py-16 bg-gradient-to-br from-blue-600 to-indigo-800">
+<main class="w-full mx-auto">
+	<section class=" text-center py-16 bg-gradient-to-br from-blue-600 to-indigo-800">
 		<h1 class="text-6xl font-bold text-white">Svelte-Leaflet</h1>
 		<p class="text-2xl mt-6 text-gray-300 animate-bounce">Map Your Ideas into Reality</p>
 	</section>
 
-	<section class="py-16">
+	<section class="p-16 ">
 		<h2 class="text-4xl font-semibold text-center mb-12">
 			Unleash the Power of Maps
 		</h2>
