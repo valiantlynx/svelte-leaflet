@@ -14,6 +14,21 @@
 	};
 
 	let leafletMap;
+
+	const properties = {
+		options: {
+			type: "Object",
+			default: "undefined",
+			description: "See https://leafletjs.com/reference.html#map-option"
+		}
+	};
+
+	const methods = {
+		getMap: {
+			description: "Returns the underlying Leaflet Map object instance.",
+			link: "https://leafletjs.com/reference.html#map-factory"
+		}
+	};
 </script>
 
 <div class="container mx-auto p-8">
@@ -32,12 +47,9 @@
 	<div class="mb-8">
 		<h2 class="text-2xl font-semibold mb-4">LeafletMap Properties</h2>
 		<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-			<code class="p-2 border rounded"
-				>options | Options. See <a
-					href="https://leafletjs.com/reference.html#map-option"
-					target="_blank">https://leafletjs.com/reference.html#map-option</a
-				> | Object(undefined)</code
-			>
+			{#each Object.entries(properties) as [key, value]}
+				<code class="p-2 border rounded">{key} | {value.description} | {value.type}({value.default})</code>
+			{/each}
 		</div>
 	</div>
 
@@ -52,15 +64,15 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td class="border p-2">getMap()</td>
-					<td class="border p-2"
-						>Returns the underlying Leaflet <code>Map</code> object instance. See
-						<a href="https://leafletjs.com/reference.html#map-factory" target="_blank"
-							>https://leafletjs.com/reference.html#map-factory</a
-						></td
-					>
-				</tr>
+				{#each Object.entries(methods) as [methodName, methodDetails]}
+					<tr>
+						<td class="border p-2">{methodName}</td>
+						<td class="border p-2">
+							{methodDetails.description}
+							<a href={methodDetails.link} target="_blank">More Info</a>
+						</td>
+					</tr>
+				{/each}
 			</tbody>
 		</table>
 	</div>
