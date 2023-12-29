@@ -3,20 +3,39 @@
 	import { ValiantRichText, getData } from '@valiantlynx/svelte-rich-text';
 	import { Breadcrumbs } from '@valiantlynx/svelte-ui';
 	import toast from 'svelte-french-toast';
+	import jsonData from './data.json';
+	import { enhance } from '$app/forms';
+	import { writable } from 'svelte/store';
 
-	// import json file with data
-	import jsonData from './data1.json';
+	let contentData = writable(jsonData);
 
-	const saveData = (data) => {
-		try {
-			console.log("data", data);
-			
-			toast.success('Docs post updated successfully');
-		} catch (error) {
-			console.log(error);
-			toast.error('Something went wrong please try again');
-		}
+	let loading = false;
+
+	const saveData = () => {
+		loading = true;
+		return async ({ result, update }) => {
+			switch (result.type) {
+				case 'success':
+					await update();
+					break;
+				case 'invalid':
+					toast.error('Docs post updated successfully');
+					await update();
+					break;
+				case 'error':
+					toast.error(result.error.message);
+					break;
+				default:
+					await update();
+			}
+			loading = false;
+		};
 	};
+
+	function updateContent() {
+		const data = getData(); // Get data from ValiantRichText
+		contentData.set(JSON.stringify(data)); 
+	}
 
 	const crumbs = [
 		{
@@ -42,12 +61,16 @@
 	<LeafletMap />
 </div>
 
-<ValiantRichText initialData={jsonData} />
-<button
-	class="btn btn-primary"
-	on:click={() => {
-		const data = getData(); // returns dataBlock[] type
-		console.log("button clicked", data);
-		saveData(data);
-	}}>Save</button
+<form
+	action="/components/leaflet-map?/save"
+	method="POST"
+	class="rounded-box p-1 items-center mt-3 bg-slate-200 text-gray-700"
+	use:enhance={saveData}
 >
+	<ValiantRichText bind:initialData={$contentData} />
+
+	<input type="hidden" name="content_object" bind:value={$contentData} />
+	<button class="btn btn-primary" on:click={updateContent} disabled={loading} type="submit">
+		Save
+	</button>
+</form>

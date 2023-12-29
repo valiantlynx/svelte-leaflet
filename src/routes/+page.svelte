@@ -56,7 +56,7 @@
 	</section>
 
 	<section class="py-16">
-		<h2 class="text-4xl font-semibold text-center mb-12 text-gray-800">
+		<h2 class="text-4xl font-semibold text-center mb-12">
 			Unleash the Power of Maps
 		</h2>
 		<div class="grid md:grid-cols-3 gap-8 text-center">
