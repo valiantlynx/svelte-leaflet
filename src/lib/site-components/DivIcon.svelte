@@ -16,6 +16,21 @@
 	const iconOptions = {
 		html: "<div style='background-color: #ff0000; color: #fff; width: 40px'>using props</div>"
 	};
+
+	const properties = {
+		options: {
+			type: "Object",
+			default: "undefined",
+			description: "Options."
+		}
+	};
+
+	const methods = {
+		getIcon: {
+			description: "Returns the underlying Leaflet Icon object instance.",
+			link: "https://leafletjs.com/reference.html#icon"
+		}
+	};
 </script>
 
 <div class="mb-8">
@@ -38,7 +53,9 @@
 
 	<h2 class="text-2xl font-semibold mb-4">Properties</h2>
 	<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-		<code class="p-2 border rounded">options | Options. | Object(undefined)</code>
+		{#each Object.entries(properties) as [key, value]}
+			<code class="p-2 border rounded">{key} | {value.description} | {value.type}({value.default})</code>
+		{/each}
 	</div>
 
 	<h2 class="text-2xl font-semibold mb-4">Methods</h2>
@@ -50,15 +67,15 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr>
-				<td class="border p-2">getIcon()</td>
-				<td class="border p-2"
-					>Returns the underlying Leaflet <code>Icon</code> object instance. See
-					<a href="https://leafletjs.com/reference.html#icon" target="_blank"
-						>https://leafletjs.com/reference.html#icon</a
-					></td
-				>
-			</tr>
+			{#each Object.entries(methods) as [methodName, methodDetails]}
+				<tr>
+					<td class="border p-2">{methodName}</td>
+					<td class="border p-2">
+						{methodDetails.description}
+						<a href={methodDetails.link} target="_blank">{methodDetails.link}</a>
+					</td>
+				</tr>
+			{/each}
 		</tbody>
 	</table>
 </div>
