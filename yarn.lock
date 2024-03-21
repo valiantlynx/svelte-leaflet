@@ -396,6 +396,26 @@
   resolved "https://registry.yarnpkg.com/@fastify/busboy/-/busboy-2.1.1.tgz#b9da6a878a371829a0502c9b6c1c143ef6663f4d"
   integrity sha512-vBZP4NlzfOlerQTnba4aqZoMhE/a9HY7HRqoOPaETQcSQuWEIyZMHGfVu6w9wGtGK5fED5qRs2DteVCjOH60sA==
 
+"@floating-ui/core@^1.0.0", "@floating-ui/core@^1.5.0":
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/@floating-ui/core/-/core-1.6.0.tgz#fa41b87812a16bf123122bf945946bae3fdf7fc1"
+  integrity sha512-PcF++MykgmTj3CIyOQbKA/hDzOAiqI3mhuoN44WRCopIs1sgoDoU4oty4Jtqaj/y3oDU6fnVSm4QG0a3t5i0+g==
+  dependencies:
+    "@floating-ui/utils" "^0.2.1"
+
+"@floating-ui/dom@^1.5.3":
+  version "1.6.3"
+  resolved "https://registry.yarnpkg.com/@floating-ui/dom/-/dom-1.6.3.tgz#954e46c1dd3ad48e49db9ada7218b0985cee75ef"
+  integrity sha512-RnDthu3mzPlQ31Ss/BTwQ1zjzIhr3lk1gZB1OC56h/1vEtaXkESrOqL5fQVMfXpwGtRwX+YsZBdyHtJMQnkArw==
+  dependencies:
+    "@floating-ui/core" "^1.0.0"
+    "@floating-ui/utils" "^0.2.0"
+
+"@floating-ui/utils@^0.2.0", "@floating-ui/utils@^0.2.1":
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/@floating-ui/utils/-/utils-0.2.1.tgz#16308cea045f0fc777b6ff20a9f25474dd8293d2"
+  integrity sha512-9TANp6GPoMtYzQdt54kfAyMmz1+osLlXdg2ENroU7zzrtflTLrrC/lgrIfaSe+Wu0b89GKccT7vxXA0MoAIO+Q==
+
 "@humanwhocodes/config-array@^0.11.14":
   version "0.11.14"
   resolved "https://registry.yarnpkg.com/@humanwhocodes/config-array/-/config-array-0.11.14.tgz#d78e481a039f7566ecc9660b4ea7fe6b1fec442b"
@@ -766,6 +786,14 @@
   resolved "https://registry.yarnpkg.com/@valiantlynx/general-config/-/general-config-0.0.14.tgz#18450f26bb0c8e98d5c9b538fa969508b5efb9ea"
   integrity sha512-N1+t+nQnO2JEkdjZjyooUrsG15GL/dHxYyDBYiezskDsN6znFa1cozbf7bBFadQBPBTRanBzb//sv7xBqj5pHw==
 
+"@valiantlynx/svelte-rich-text@^0.2.3":
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/@valiantlynx/svelte-rich-text/-/svelte-rich-text-0.2.3.tgz#a2e12a6ed8fd241b32d2627234fb6c52d62a1474"
+  integrity sha512-DTB6/AGuC64CcXvdwnvh+RJ+dP1JzRI98j9mO7gUXeQqt+5X3ThQEi6Em0kIDquvcM191hurnHlEx/8OOBtUPQ==
+  dependencies:
+    short-uuid "^4.2.2"
+    svelte-select "^5.7.0"
+
 "@valiantlynx/svelte-ui@0.0.23":
   version "0.0.23"
   resolved "https://registry.yarnpkg.com/@valiantlynx/svelte-ui/-/svelte-ui-0.0.23.tgz#c768412a729e68315ba19702e6f0770680b5f5a8"
@@ -841,6 +869,11 @@ ansi-styles@^6.1.0:
   version "6.2.1"
   resolved "https://registry.yarnpkg.com/ansi-styles/-/ansi-styles-6.2.1.tgz#0e62320cf99c21afff3b3012192546aacbfb05c5"
   integrity sha512-bN798gFfQX+viw3R7yrGWRqnrN2oRkEkUjjl4JNn4E8GxxbjtG3FbrEIIY3l8/hrwUwIeCZvi4QuOTP4MErVug==
+
+any-base@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/any-base/-/any-base-1.1.0.tgz#ae101a62bc08a597b4c9ab5b7089d456630549fe"
+  integrity sha512-uMgjozySS8adZZYePpaWs8cxB9/kdzmpX6SgJZ+wbz1K5eYk5QMYDVJaZKhxyIHUdnnJkfR7SVgStgH7LkGUyg==
 
 any-promise@^1.0.0:
   version "1.3.0"
@@ -3318,6 +3351,14 @@ shebang-regex@^3.0.0:
   resolved "https://registry.yarnpkg.com/shebang-regex/-/shebang-regex-3.0.0.tgz#ae16f1644d873ecad843b0307b143362d4c42172"
   integrity sha512-7++dFhtcx3353uBaq8DDR4NuxBetBzC7ZQOhmTQInHEd6bSrXdiEyzCvG07Z44UYdLShWUyXt5M/yhz8ekcb1A==
 
+short-uuid@^4.2.2:
+  version "4.2.2"
+  resolved "https://registry.yarnpkg.com/short-uuid/-/short-uuid-4.2.2.tgz#4bb3d926da04a4a5f34420d17b5551fd6d9d535c"
+  integrity sha512-IE7hDSGV2U/VZoCsjctKX6l5t5ak2jE0+aeGJi3KtvjIUNuZVmHVYUjNBhmo369FIWGDtaieRaO8A83Lvwfpqw==
+  dependencies:
+    any-base "^1.1.0"
+    uuid "^8.3.2"
+
 side-channel@^1.0.4:
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/side-channel/-/side-channel-1.0.6.tgz#abd25fb7cd24baf45466406b1096b7831c9215f2"
@@ -3575,6 +3616,14 @@ svelte-check@^3.4.3:
     postcss "^8.4.29"
     postcss-scss "^4.0.8"
 
+svelte-floating-ui@1.5.8:
+  version "1.5.8"
+  resolved "https://registry.yarnpkg.com/svelte-floating-ui/-/svelte-floating-ui-1.5.8.tgz#fddc005c2714943699d7d8fb800fa38ab588662c"
+  integrity sha512-dVvJhZ2bT+kQDHlE4Lep8t+sgEc0XD96fXLzAi2DDI2bsaegBbClxXVNMma0C2WsG+n9GJSYx292dTvA8CYRtw==
+  dependencies:
+    "@floating-ui/core" "^1.5.0"
+    "@floating-ui/dom" "^1.5.3"
+
 svelte-french-toast@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/svelte-french-toast/-/svelte-french-toast-1.2.0.tgz#bfe3696ee1e3cbdee2a300e0153dede7d6d802eb"
@@ -3602,6 +3651,13 @@ svelte-preprocess@^5.1.3:
     magic-string "^0.30.5"
     sorcery "^0.11.0"
     strip-indent "^3.0.0"
+
+svelte-select@^5.7.0:
+  version "5.8.3"
+  resolved "https://registry.yarnpkg.com/svelte-select/-/svelte-select-5.8.3.tgz#ba25f4982a5e500d2541e8e80d113228cb6f2250"
+  integrity sha512-nQsvflWmTCOZjssdrNptzfD1Ok45hHVMTL5IHay5DINk7dfu5Er+8KsVJnZMJdSircqtR0YlT4YkCFlxOUhVPA==
+  dependencies:
+    svelte-floating-ui "1.5.8"
 
 svelte-writable-derived@^3.1.0:
   version "3.1.0"
@@ -3860,6 +3916,11 @@ util-deprecate@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/util-deprecate/-/util-deprecate-1.0.2.tgz#450d4dc9fa70de732762fbd2d4a28981419a0ccf"
   integrity sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==
+
+uuid@^8.3.2:
+  version "8.3.2"
+  resolved "https://registry.yarnpkg.com/uuid/-/uuid-8.3.2.tgz#80d5b5ced271bb9af6c445f21a1a04c606cefbe2"
+  integrity sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==
 
 validate-npm-package-license@^3.0.1:
   version "3.0.4"

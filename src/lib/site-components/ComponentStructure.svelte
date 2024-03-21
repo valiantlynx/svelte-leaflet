@@ -1,5 +1,5 @@
 <script>
-	import { ValiantRichText, getData } from '@valiantlynx/svelte-leaflet';
+	import { ValiantRichText, getData } from '@valiantlynx/svelte-rich-text';
 	import toast from 'svelte-french-toast';
 	import { enhance } from '$app/forms';
 	import { writable } from 'svelte/store';
