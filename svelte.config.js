@@ -1,5 +1,6 @@
 import adapterAuto from '@sveltejs/adapter-auto';
 import adapterNode from '@sveltejs/adapter-node';
+import adapterStatic from '@sveltejs/adapter-static';
 import { vitePreprocess } from '@sveltejs/kit/vite';
 import dotenv from 'dotenv'
 dotenv.config()
@@ -17,7 +18,7 @@ const config = {
 		// adapter-auto only supports some environments, see https://kit.svelte.dev/docs/adapter-auto for a list.
 		// If your environment is not supported or you settled on a specific environment, switch out the adapter.
 		// See https://kit.svelte.dev/docs/adapters for more information about adapters.
-		adapter: deployTarget === 'auto' ? adapterAuto() : adapterNode()
+		adapter: deployTarget === 'auto' ? adapterAuto() : 'static' ? adapterStatic() : adapterNode()
 	}
 };
 

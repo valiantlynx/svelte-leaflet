@@ -1,12 +1,12 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: Build and deploy container app to Azure Web App - svelte-rich-text
+name: Build and deploy container app to Azure Web App - svelte-leaflet
 
 on:
   workflow_dispatch:
   workflow_run:
-    workflows: ["svelte-rich-text"]  # This triggers the deployment after svelte-rich-text workflow completes
+    workflows: ["svelte-leaflet"]  # This triggers the deployment after svelte-leaflet workflow completes
     types:
       - completed
 
@@ -23,7 +23,7 @@ jobs:
       if: github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main'
       uses: azure/webapps-deploy@v2
       with:
-        app-name: 'svelte-rich-text'
+        app-name: 'svelte-leaflet'
         slot-name: 'production'
         publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE }}
-        images: 'index.docker.io/${{ secrets.DOCKER_HUB_USERNAME }}/svelte-rich-text:commit-${{ github.sha }}'
+        images: 'index.docker.io/${{ secrets.DOCKER_HUB_USERNAME }}/svelte-leaflet:commit-${{ github.sha }}'
