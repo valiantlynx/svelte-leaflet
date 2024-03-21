@@ -1,6 +1,6 @@
-name: svelte-rich-text
+name: svelte-leaflet
 
-run-name: ${{ github.actor }} is building svelte-rich-text image 📷
+run-name: ${{ github.actor }} is building svelte-leaflet image 📷
 
 on:
   push:
@@ -21,7 +21,7 @@ on:
 
 jobs:
   build-and-push-images:
-    name: Build svelte-rich-text
+    name: Build svelte-leaflet
     runs-on: ubuntu-latest
     permissions:
       packages: write
@@ -69,8 +69,8 @@ jobs:
       uses: docker/metadata-action@v3
       with:
         images: |
-          ${{ secrets.DOCKER_HUB_USERNAME }}/svelte-rich-text
-          ghcr.io/${{ secrets.DOCKER_HUB_USERNAME }}/svelte-rich-text
+          ${{ secrets.DOCKER_HUB_USERNAME }}/svelte-leaflet
+          ghcr.io/${{ secrets.DOCKER_HUB_USERNAME }}/svelte-leaflet
         flavor: |
           latest=false
         tags: |
