@@ -1,0 +1,19 @@
+version: "3"
+
+services:
+  svelte-leaflet:
+    container_name: svelte-leaflet
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - 3000:3000
+    networks:
+      - valiantlynx-turborepo
+
+# Define a network, which allows containers to communicate
+# with each other, by using their container name as a hostname
+networks:
+  valiantlynx-turborepo:
+    external: false

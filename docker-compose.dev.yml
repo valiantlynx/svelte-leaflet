@@ -1,0 +1,15 @@
+version: "3.8"
+services:
+  svelte-leaflet-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev # Point to the development Dockerfile
+    ports:
+      - "3000:3000" # Port for the SvelteKit app
+      - "5173:5173" # Optional: Include if your dev setup uses this port
+      - "5174:5174"
+      - "4173:4173" # Optional: Include if your dev setup uses this port
+    volumes:
+      - .:/app # Mount the project directory inside the container for live reloading
+      - /app/node_modules # Use a volume for node_modules to avoid overwriting the container's copy
+    restart: always

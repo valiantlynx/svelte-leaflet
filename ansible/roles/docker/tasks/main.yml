@@ -1,0 +1,27 @@
+- name: Install Docker dependencies
+  become: true
+  apt:
+    name:
+      - docker.io
+      - python3-pip
+    state: present
+
+- name: Uninstall Docker Compose installed via pip (if any)
+  become: true
+  pip:
+    name: docker-compose
+    state: absent
+    executable: pip3
+
+- name: Download Docker Compose
+  become: true
+  get_url:
+    url: "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-{{ ansible_system }}-{{ ansible_architecture }}"
+    dest: "/usr/local/bin/docker-compose"
+    mode: 'u+x,g+x'
+
+- name: Set executable permission on Docker Compose
+  become: true
+  file:
+    path: "/usr/local/bin/docker-compose"
+    mode: 'u+x,g+x'

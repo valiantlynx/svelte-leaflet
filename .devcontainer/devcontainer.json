@@ -1,0 +1,41 @@
+{
+  "name": "svelte-leaflet-dev",
+  "dockerComposeFile": ["../docker-compose.dev.yml"],
+  "service": "svelte-leaflet-dev",
+  "workspaceFolder": "/app",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "etmoffat.pip-packages",
+        "aaron-bond.better-comments",
+        "formulahendry.auto-rename-tag",
+        "formulahendry.code-runner",
+        "github.copilot",
+        "github.vscode-pull-request-github",
+        "ms-azuretools.vscode-docker",
+        "ms-vscode-remote.remote-containers",
+        "ms-vscode-remote.remote-ssh",
+        "ms-vscode-remote.vscode-remote-extensionpack",
+        "ms-toolsai.jupyter",
+        "ritwickdey.liveserver",
+        "visualstudioexptteam.vscodeintellicode",
+        "vscode-icons-team.vscode-icons",
+        "esbenp.prettier-vscode",
+        "jpotterm.simple-vim",
+        "wakatime.vscode-wakatime",
+        "svelte.svelte-vscode",
+        "ardenivanov.svelte-intellisense",
+        "fivethree.vscode-svelte-snippets"
+      ],
+      "settings": {
+        "python.pythonPath": "/usr/local/bin/python",
+        "python.linting.pylintEnabled": false,
+        "python.linting.flake8Enabled": true,
+        "python.linting.flake8Args": ["--max-line-length=88"],
+        "python.formatting.provider": "ms-python.python",
+        "editor.formatOnSave": true
+      }
+    }
+  },
+  "postCreateCommand": "sudo apt-get update && sudo apt-get upgrade -y"
+}

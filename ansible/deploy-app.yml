@@ -1,0 +1,6 @@
+---
+- hosts: ec2_instances
+  roles:
+    - common
+    - docker
+    - docker_deploy

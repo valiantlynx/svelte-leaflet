@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  certbot:
+    image: certbot/certbot
+    container_name: certbot
+    volumes:
+      - ./certbot/conf:/etc/letsencrypt
+      - ./certbot/logs:/var/log/letsencrypt
+      - ./certbot/www:/var/www/certbot
+    networks:
+      - monitoring
+    command: >
+      certonly --webroot -w /var/www/certbot --force-renewal --email valiantlynxz@gmail.com
+      {% for domain in cloudflare_zone_ids.keys() %}
+      -d svelte-leaflet.{{ domain }}
+      {% endfor %}
+      --agree-tos --non-interactive
+networks:
+  monitoring:
+    name: monitoring
+    external: true

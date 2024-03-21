@@ -1,0 +1,106 @@
+---
+- name: Include Cloudflare domain and zone IDs variables
+  ansible.builtin.include_vars:
+    file: "vars/cloudflare_vars.yml"
+
+
+- name: Debug cloudflare_zone_ids variable content
+  ansible.builtin.debug:
+    var: cloudflare_zone_ids
+
+- name: Generate Docker Compose file
+  ansible.builtin.template:
+    src: "docker/docker-compose.yaml.j2"
+    dest: "{{ ansible_env.HOME }}/docker-compose.yml"
+    mode: "0644"
+    
+- name: Generate Docker Compose file for certbot with dynamic domain names
+  ansible.builtin.template:
+    src: "docker/docker-compose.certbot.yml.j2"
+    dest: "{{ ansible_env.HOME }}/docker-compose.certbot.yml"
+    mode: "0644"
+
+- name: Ensure nginx directory exists
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/nginx"
+    state: directory
+    mode: '0755'
+
+
+- name: Generate http NGINX configuration with dynamic domain names
+  ansible.builtin.template:
+    src: "nginx/http.conf.j2"
+    dest: "{{ ansible_env.HOME }}/nginx/nginx.conf"
+    mode: "0644"
+
+- name: Create 'monitoring' network if it does not exist
+  become: true # Escalate if necessary for Docker commands
+  ansible.builtin.command: docker network create monitoring
+  register: network_creation
+  failed_when: network_creation.rc != 0 and 'already exists' not in network_creation.stderr
+  ignore_errors: yes
+
+- name: Pull the latest images with Docker Compose
+  command: docker-compose pull
+  become: true # Escalate if necessary for Docker commands
+  args:
+    chdir: "{{ ansible_env.HOME }}/" # Ensure this points to where docker-compose.yml is located
+
+- name: Deploy services using Docker Compose
+  command: docker-compose up -d nginx
+  become: true # Escalate if necessary for Docker commands
+  args:
+    chdir: "{{ ansible_env.HOME }}/" # Ensure this points to where docker-compose.yml is located
+
+- name: Determine the primary domain
+  set_fact:
+    primary_domain: "{{ cloudflare_zone_ids.keys() | list | first }}"
+
+- name: Check if SSL certificate needs renewal for the primary domain
+  ansible.builtin.command: >
+    openssl x509 -checkend 864000 -noout -in {{ ansible_env.HOME }}/certbot/conf/live/{{ primary_domain }}/fullchain.pem
+  register: cert_check
+  failed_when: cert_check.rc > 1
+  ignore_errors: yes
+
+- name: Obtain SSL certificates with Certbot if needed
+  command: docker-compose -f docker-compose.certbot.yml run --rm certbot
+  become: true
+  args:
+    chdir: "{{ ansible_env.HOME }}/"
+  when: cert_check.rc == 1
+
+- name: Generate https NGINX configuration with dynamic domain names
+  ansible.builtin.template:
+    src: "nginx/https.conf.j2"
+    dest: "{{ ansible_env.HOME }}/nginx/nginx.conf"
+    mode: "0644"
+
+- name: Stop existing Docker Compose services
+  command: docker-compose down --remove-orphans
+  become: true
+  args:
+    chdir: "{{ ansible_env.HOME }}/"
+
+- name: Deploy services using Docker Compose
+  command: docker-compose up -d
+  become: true
+  args:
+    chdir: "{{ ansible_env.HOME }}/"
+
+- name: Delete all hanging stuff
+  command: docker system prune -a -f --volumes
+  become: true
+  args:
+    chdir: "{{ ansible_env.HOME }}/"
+
+- name: Schedule automated certificate renewal
+  ansible.builtin.cron:
+    name: "Renew Let's Encrypt certificates"
+    day: "1"
+    month: "*/2"
+    hour: "5"
+    minute: "0"
+    job: "cd {{ ansible_env.HOME }} && docker-compose run --rm certbot renew && docker-compose exec nginx nginx -s reload"
+    user: ubuntu
+
