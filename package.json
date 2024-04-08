@@ -1,6 +1,6 @@
 {
 	"name": "@valiantlynx/svelte-leaflet",
-	"version": "0.0.16",
+	"version": "0.0.14",
 	"publishConfig": {
 		"access": "public"
 	},
