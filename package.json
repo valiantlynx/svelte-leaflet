@@ -26,7 +26,7 @@
 		"type": "git",
 		"url": "git+https://github.com/valiantlynx/svelte-leaflet.git"
 	},
-	"homepage": "https://svelte-leaflet.vercel.app",
+	"homepage": "https://svelte-leaflet.valiantlynx.com",
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build && yarn package",
