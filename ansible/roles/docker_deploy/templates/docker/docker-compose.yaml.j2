@@ -9,6 +9,36 @@ services:
     networks:
       - monitoring
 
+  chattergun:
+    container_name: chattergun
+    image: valiantlynx/chattergun:latest
+    restart: unless-stopped
+    mem_limit: 100m
+    memswap_limit: 100m
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://chattergun.valiantlynx.com"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    networks:
+      - monitoring
+    depends_on:
+      - chattergun-relay
+
+  chattergun-relay:
+    container_name: chattergun-relay
+    image: valiantlynx/chattergun-relay:latest
+    restart: unless-stopped
+    mem_limit: 600m
+    memswap_limit: 600m
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://chattergun-relay.valiantlynx.com"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    networks:
+      - monitoring
+
   nginx:
     image: nginx:latest
     container_name: nginx
@@ -22,6 +52,9 @@ services:
       - ./certbot/www:/var/www/certbot
     depends_on:
       - svelte-leaflet
+      - chattergun-relay
+      - chattergun
+      
     restart: unless-stopped
     networks:
       - monitoring  

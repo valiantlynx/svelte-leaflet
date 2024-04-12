@@ -13,7 +13,7 @@ services:
     command: >
       certonly --webroot -w /var/www/certbot --force-renewal --email valiantlynxz@gmail.com
       {% for domain in cloudflare_zone_ids.keys() %}
-      -d svelte-leaflet.{{ domain }}
+      -d {{ domain }}
       {% endfor %}
       --agree-tos --non-interactive
 networks:

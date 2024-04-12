@@ -1,6 +1,3 @@
----
-# This workflow will release the packages with Changesets
-
 name: 🚀 CI - publish
 
 on:
@@ -8,33 +5,61 @@ on:
     branches:
       - 'main'
   workflow_dispatch:
+
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
-jobs:
-  release:
-    name: Release
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v3
+env:
+  CI: true
+  PNPM_CACHE_FOLDER: .pnpm-store
 
-      - name: Setup Node.js 18.x
+jobs:
+  version:
+    timeout-minutes: 15
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 18.x
+          node-version: '21'
 
-      - name: Install Dependencies
-        run: yarn
+      - name: Install pnpm
+        run: npm i pnpm@latest -g
 
-      - name: Build
-        run: yarn build && yarn package
+      - name: Setup npmrc
+        run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > .npmrc
 
-      - name: Create Release Pull Request or Publish to npm
-        id: changesets
+      - name: Setup pnpm config
+        run: pnpm config set store-dir $PNPM_CACHE_FOLDER
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Check for uncommitted changes
+        id: git-check
+        run: |
+          if ! git diff --quiet; then
+            echo "Uncommitted changes detected, committing them..."
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add .
+            git commit -m "chore: commit changes before publishing [skip ci]"
+            echo "Changes committed"
+          else
+            echo "No uncommitted changes, proceeding..."
+          fi
+      
+      - name: Create and publish versions
         uses: changesets/action@v1
         with:
-          # This expects you to have a script called release which does a build for your packages and calls changeset publish
-          publish: yarn release
+          version: pnpm ci:version
+          commit: "chore: update versions [skip ci]"
+          title: "chore: update versions [skip ci]"
+          publish: pnpm ci:publish
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
