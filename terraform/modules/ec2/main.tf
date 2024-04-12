@@ -27,22 +27,34 @@ resource "aws_instance" "web" {
   }
 }
 
+locals {
+  all_domains = merge(
+    # Handle root domains
+    { for domain, details in var.cloudflare_zone_ids : domain => {
+      zone_id = details.zone_id,
+      port    = details.port != null ? details.port : null,
+      service = details.service != null ? details.service : null
+    } if details.include_root },
 
-data "template_file" "cloudflare_vars" {
-  template = <<-EOT
-    ---
-    cloudflare_zone_ids:
-      %{ for domain, zone_id in var.cloudflare_zone_ids ~}
-      "${domain}": "${zone_id}"
-      %{ endfor ~}
-  EOT
+    # Handle subdomains
+    merge([
+      for domain, details in var.cloudflare_zone_ids : 
+      { for subdomain in details.subdomains : "${subdomain.name}.${domain}" => {
+        zone_id = details.zone_id,
+        port    = subdomain.port,
+        service = subdomain.service
+      } if details.include_subdomains }
+    ]...)
+  )
 }
 
 resource "local_file" "cloudflare_vars_file" {
   filename = "${abspath(path.module)}/../../../ansible/vars/cloudflare_vars.yml"
-  content  = data.template_file.cloudflare_vars.rendered
+  
+  content = yamlencode({
+    cloudflare_zone_ids = local.all_domains
+  })
 }
-
 
 data "template_file" "inventory" {
   template = <<-EOT
@@ -81,9 +93,7 @@ resource "null_resource" "run_ansible" {
       sleep 30;
       sudo apt update -y;
       cd ../../../ansible/;
-      ls -a;
-      ls deploy-app.yml;
-      env ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i ${self.triggers.inventory_file} deploy-app.yml -vvv
+      env ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i ${self.triggers.inventory_file} deploy-app.yml
     EOF
 
     working_dir = path.module

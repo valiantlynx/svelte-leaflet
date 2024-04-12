@@ -11,7 +11,7 @@ variable "subnets" {
 variable "ec2_names" {
     description = "EC2 names"
     type = list(string)
-    default = ["svelte-leaflet1"] # e.g ["svelte-leaflet1", "svelte-leaflet2"]
+    default = ["svelte-rich-text1"] # e.g ["svelte-rich-text1", "svelte-rich-text2"]
 }
 
 variable "key_name" {
@@ -23,9 +23,18 @@ variable "private_key_path" {
   description = "Key full path"
   type = string
 }
-
 variable "cloudflare_zone_ids" {
-  type = map(string)
-  description = "Mapping of domain names to Cloudflare zone IDs"
+  description = "Map of domain to Cloudflare zone IDs, subdomains, and inclusion flags"
+  type = map(object({
+    zone_id            = string
+    service            = optional(string) # Now optional for root domains
+    port               = optional(number) # Now optional for root domains
+    subdomains         = list(object({
+      name             = string
+      service          = string
+      port             = number
+    }))
+    include_root       = bool
+    include_subdomains = bool
+  }))
 }
-

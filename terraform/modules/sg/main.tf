@@ -51,6 +51,6 @@ resource "aws_security_group" "sg" {
   }
 
   tags = {
-    Name = "Mysvelte-leafletSecurityGroup"
+    Name = "Mysvelte-rich-textSecurityGroup"
   }
 }

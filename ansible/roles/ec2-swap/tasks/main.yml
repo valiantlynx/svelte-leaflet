@@ -1,0 +1,40 @@
+---
+- name: Remove useless packages from the cache
+  become: true
+  apt:
+    autoclean: yes
+
+- name: Check if swap file already exists
+  become: true
+  ansible.builtin.stat:
+    path: /swapfile
+  register: swapfile
+
+- name: Create a 1GB swap file
+  become: true
+  command: fallocate -l 1G /swapfile
+  when: not swapfile.stat.exists
+
+- name: Secure swap file by setting up correct permissions
+  become: true
+  command: chmod 600 /swapfile
+  when: not swapfile.stat.exists
+
+- name: Set up the swap area
+  become: true
+  command: mkswap /swapfile
+  when: not swapfile.stat.exists
+
+- name: Enable swap
+  become: true
+  command: swapon /swapfile
+  when: not swapfile.stat.exists
+
+- name: Make this swap setting persist by adding following line in /etc/fstab
+  become: true
+  lineinfile:
+    path: /etc/fstab
+    line: '/swapfile swap swap defaults 0 0'
+    create: yes
+    state: present
+  when: not swapfile.stat.exists

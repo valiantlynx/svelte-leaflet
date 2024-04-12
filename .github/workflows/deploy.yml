@@ -1,12 +1,15 @@
 name: Deploy
 run-name: ${{ github.actor }} is deploying 🚀🚀🚀
 
+# Define a concurrency group to ensure only one workflow runs at a time
+concurrency: 
+  group: deploy_group
+  cancel-in-progress: false
+  
 on:
+  repository_dispatch:
+    types: [image_pushed]
   workflow_dispatch:
-  workflow_run:
-    workflows: ["svelte-leaflet"]  # This triggers the deployment after ollama-docker workflow completes
-    types:
-      - completed
 
 env:
   AWS_ACCESS_KEY: ${{ secrets.AWS_ACCESS_KEY }}
@@ -18,7 +21,6 @@ jobs:
   build-infra:
     name: terraform-ci-cd
     runs-on: ubuntu-latest
-    if: github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main'
     steps:
       - name: Checkout
         uses: actions/checkout@v2

@@ -94,3 +94,16 @@ jobs:
     - name: Show image digest
       run: |
         echo ${{ steps.docker_build.outputs.digest }}
+
+    
+    # Dispatch deployment event only if the workflow is successful and triggered on the main branch
+    - name: Dispatch Deployment Event
+      if: github.event_name != 'pull_request' && success()
+      run: |
+        curl -X POST \
+        -H "Authorization: token ${{ secrets.PAT }}" \
+        -H "Accept: application/vnd.github+json" \
+        https://api.github.com/repos/valiantlynx/svelte-leaflet/dispatches \
+        -d '{"event_type": "image_pushed"}'
+      env:
+        PAT: ${{ secrets.PAT }}

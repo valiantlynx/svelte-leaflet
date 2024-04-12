@@ -4,8 +4,17 @@ variable "public_ip" {
 }
 
 variable "cloudflare_zone_ids" {
-  type = map(string)
-  description = "Mapping of domain names to Cloudflare zone IDs"
+  description = "Map of domain to Cloudflare zone IDs, subdomains, and inclusion flags"
+  type = map(object({
+    zone_id            = string
+    service            = optional(string) # Now optional for root domains
+    port               = optional(number) # Now optional for root domains
+    subdomains         = list(object({
+      name             = string
+      service          = string
+      port             = number
+    }))
+    include_root       = bool
+    include_subdomains = bool
+  }))
 }
-
-
