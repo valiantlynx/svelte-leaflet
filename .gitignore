@@ -13,3 +13,5 @@ vite.config.ts.timestamp-*
 .vscode
 .dist
 .turbo
+.npmrc
+.pnpm-store/
