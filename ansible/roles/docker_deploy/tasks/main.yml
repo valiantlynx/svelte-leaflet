@@ -108,7 +108,7 @@
 - name: Debug - Show openssl command output
   ansible.builtin.debug:
     msg: "{{ cert_check.stdout }} within the next 864000 seconds (10 days)"
-  when: cert_check.stdout
+  when: cert_file.stat.exists
 
 - name: Obtain SSL certificates with Certbot if needed
   command: docker-compose -f docker-compose.certbot.yml run --rm certbot
