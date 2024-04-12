@@ -46,6 +46,18 @@
     dest: "{{ ansible_env.HOME }}/nginx/nginx.conf"
     mode: "0644"
 
+- name: Stop existing Docker Compose services
+  command: docker-compose down --remove-orphans
+  become: true
+  args:
+    chdir: "{{ ansible_env.HOME }}/"
+
+- name: wipe out everything docker might have, images, container, volumes, etc
+  command: docker system prune -a --volumes --force
+  become: true
+  args:
+    chdir: "{{ ansible_env.HOME }}/"
+
 - name: Create 'monitoring' network if it does not exist
   become: true # Escalate if necessary for Docker commands
   ansible.builtin.command: docker network create monitoring
@@ -53,12 +65,6 @@
   failed_when: network_creation.rc != 0 and 'already exists' not in network_creation.stderr
   ignore_errors: true
 
-- name: Stop existing Docker Compose services
-  command: docker-compose down --remove-orphans
-  become: true
-  args:
-    chdir: "{{ ansible_env.HOME }}/"
-    
 - name: Pull the latest images with Docker Compose
   command: docker-compose pull
   become: true # Escalate if necessary for Docker commands
@@ -102,7 +108,7 @@
 - name: Debug - Show openssl command output
   ansible.builtin.debug:
     msg: "{{ cert_check.stdout }} within the next 864000 seconds (10 days)"
-  when: cert_file.stat.exists
+  when: cert_check.stdout
 
 - name: Obtain SSL certificates with Certbot if needed
   command: docker-compose -f docker-compose.certbot.yml run --rm certbot

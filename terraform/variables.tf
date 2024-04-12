@@ -35,7 +35,7 @@ variable "cloudflare_zone_ids" {
         },
         {
           name    = "chattergun",
-          service = "valiantos",
+          service = "chattergun",
           port    = 3000
         },
         {
