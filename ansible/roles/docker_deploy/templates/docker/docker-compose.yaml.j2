@@ -39,6 +39,13 @@ services:
     networks:
       - monitoring
 
+  recommendation-engine:
+    image: valiantlynx/recommendation-engine:latest
+    container_name: recommendation-engine
+    restart: always
+    networks:
+      - monitoring
+
   nginx:
     image: nginx:latest
     container_name: nginx
@@ -54,6 +61,7 @@ services:
       - svelte-leaflet
       - chattergun-relay
       - chattergun
+      - recommendation-engine
       
     restart: unless-stopped
     networks:

@@ -42,6 +42,11 @@ variable "cloudflare_zone_ids" {
           name    = "chattergun-relay",
           service = "chattergun-relay",
           port    = 8765
+        },
+        {
+          name    = "recommendation-engine",
+          service = "recommendation-engine",
+          port    = 8000
         }
       ],
       include_root = false,
