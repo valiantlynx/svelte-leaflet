@@ -1,5 +1,5 @@
 # Use Ubuntu as the base image to set up the development environment
-FROM ubuntu:22.04 AS dev
+FROM ubuntu:24.04 AS dev
 
 # Avoid prompts from apt
 ENV DEBIAN_FRONTEND=noninteractive
