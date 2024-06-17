@@ -45,7 +45,7 @@ Basic types:
 
 Controls:
 
-- [ ] Zoom
+- [x] Zoom
 - [ ] Attribution
 - [ ] Layers
 - [x] Scale
